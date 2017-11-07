@@ -1,1 +1,1 @@
-web: python stock_interactive.py &
+web: python setup.py &
