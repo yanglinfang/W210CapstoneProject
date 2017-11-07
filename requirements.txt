@@ -1,0 +1,8 @@
+Flask==0.11.1
+pandas_datareader==0.5.0
+WTForms==2.1
+cufflinks==0.12.0
+Flask_WTF==0.14.2
+plotly==2.0.0
+dj_database_url==0.4.2
+Django==2.0b1
