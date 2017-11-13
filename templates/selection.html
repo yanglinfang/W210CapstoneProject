@@ -17,7 +17,14 @@ The Python Quants GmbH
   </dd>
 {% endmacro %}
 
+{% block backToSearch %}
+<div class=metanav>
+    <a href="{{ url_for('main')}}">back to symbol search</a>
+</div>
+{% endblock %}
+
 {% block body %}
+
 
   <div class="form">
   <form action="{{ url_for('main') }}" method=post

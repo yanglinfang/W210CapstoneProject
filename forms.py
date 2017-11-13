@@ -9,7 +9,6 @@ from wtforms.fields import SubmitField
 from wtforms.validators import DataRequired
 from flask_wtf import Form
 
-
 class SymbolSearch(Form):
     symbol = TextField('<b>Symbol</b> (eg AAPL, MSFT)',
                        validators=[DataRequired()])
@@ -17,4 +16,5 @@ class SymbolSearch(Form):
                        validators=[DataRequired()])
     trend2 = TextField('<b>Trend 2</b> (eg 100, 252)',
                        validators=[DataRequired()])
+
     submit = SubmitField()

@@ -4,6 +4,12 @@ The Python Quants GmbH
 -->
 {% extends "layout.html" %}
 
+{% block backToSearch %}
+<div class=metanav>
+    <a href="{{ url_for('main')}}">back to symbol search</a>
+</div>
+{% endblock %}
+
 {% block body %}
 
 

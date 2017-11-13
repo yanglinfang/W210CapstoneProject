@@ -1,0 +1,43 @@
+<!-- selection.html
+(c) Dr Yves J Hilpisch
+The Python Quants GmbH
+-->
+{% extends "layout.html" %}
+
+{% macro render_field(field) %}
+  <dd>{{ field.label }}
+  <dd>{{ field(**kwargs)|safe }}
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <dd>{{ error }}</dd>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </dd>
+{% endmacro %}
+
+{% block backToSearch %}
+<div class=metanav>
+    <a href="{{ url_for('patentMain')}}">back to patent search</a>
+</div>
+{% endblock %}
+
+{% block body %}
+
+  <div class="form">
+  <form action="{{ url_for('patentMain') }}" method=post
+   enctype="multipart/form-data">
+    <dl>
+      <dd><h1>Search for Patents</h1></dd><br>
+    
+      <dd>{{ render_field( form.patent_abs ) }}</dd><br>
+      <dd>{{ render_field( form.patent_cosine_sim_threshold ) }}</dd><br>
+      <dd>{{ render_field( form.patent_result_top ) }}</dd><br>
+      <dd>{{ render_field( form.submit ) }}</dd><br>
+
+    </dl>
+  </form>
+  </div>
+
+{% endblock %}

@@ -9,11 +9,6 @@ The Python Quants GmbH
 
 </head>
 
-<div>
-  <div>Classify patent claims using NLP and Deep learning to reduce patent processing time.</div>
-  <div>Look for similarities in claims to aid inventors when drafting the claims</div>      
-</div>
-
 <link rel=stylesheet type=text/css
       href="{{ url_for('static', filename='style.css') }}">
 
@@ -29,9 +24,10 @@ The Python Quants GmbH
     <img src='http://hilpisch.com/tpq_logo.png' alt="TPQ Logo">
   </div>
 
-  <div class=metanav>
-    <a href="{{ url_for('main')}}">back to search</a>
-  </div>
+  {% block backToSearch %}
+  
+  {% endblock %}
+
   {% block body %}
 
   {% endblock %}

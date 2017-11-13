@@ -1,0 +1,43 @@
+<!-- plotly.html
+(c) Dr Yves J Hilpisch
+The Python Quants GmbH
+-->
+{% extends "layout.html" %}
+
+{% block backToSearch %}
+<div class=metanav>
+    <a href="{{ url_for('patentMain')}}">back to patent search</a>
+</div>
+{% endblock %}
+
+{% block body %}
+
+
+    <h1>Results for Patent Search</h1>
+
+    <div>Patent Abstract you've entered:</div>
+    <div>
+        {{ abs }}
+    </div>
+    <br><br>
+    
+    <div>Patent Cosine Similarity Threshold you've entered:</div>
+    <div>
+        {{ sim }}
+    </div>
+
+    <br><br>
+
+   
+    <div>Patent Search Result Get Top Count you've entered:</div>
+    <div>
+        {{ top }}
+    </div>
+
+    <br><br>
+    <div>Patent Search Result Table:</div>
+    {{ table | safe }}
+
+    <br><br>
+
+{% endblock %}
