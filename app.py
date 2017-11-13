@@ -65,5 +65,5 @@ def patentResults(abs, sim, top):
     return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table) 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=7777, debug=True)
-    #app.run()
+    #app.run(host='0.0.0.0', port=7777, debug=True)
+    app.run()

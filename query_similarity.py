@@ -55,5 +55,5 @@ def search(input_abs, input_sim, input_top):
     # sort the results and pick top results        
     df_result = df_result.sort_values('cosine_similarity',ascending=[False])
     df_result = df_result[:top]
-    print(df_result)   
+    #print(df_result)   
     return df_result, type(df_result)
