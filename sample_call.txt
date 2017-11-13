@@ -1,0 +1,4 @@
+python query_similarity.py 'The modular semiconductor device defined in claim 3 wherein said heat-dissipating metal plate is formed with respective grooves on opposite sides of said conductive member' 0.5 5
+
+python query_similarity.py 'A manipulation method of a telemeeting terminal device for performing communication between remote locations by a multiwindow function for displaying multiple media' 0.5 5
+
