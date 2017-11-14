@@ -16,12 +16,12 @@ The Python Quants GmbH
       rel='stylesheet' type='text/css'>
 
 <link rel="shortcut icon"
-      href="http://hilpisch.com/favicon.ico">
+  href="{{ url_for('static', filename='IPsearch.ico') }}">
 
 <div class=page>
 
   <div class=logo>
-    <img src='http://hilpisch.com/tpq_logo.png' alt="TPQ Logo">
+    <img src="{{ url_for('static', filename='IPsearch.png') }}" alt="TPQ Logo">
   </div>
 
   {% block backToSearch %}

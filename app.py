@@ -25,7 +25,7 @@ py.sign_in('yanglinfang', 'F5jaY29GDfD8TIenMz9p')
 app = Flask(__name__)
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/symbol", methods=['GET', 'POST'])
 def main():
     form = SymbolSearch(csrf_enabled=False)
     if request.method == 'POST' and form.validate():
@@ -46,7 +46,7 @@ def results(symbol, trend1, trend2):
                            plot=url, table=table)
 
 
-@app.route("/patent", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def patentMain():
     form = PatentSearch(csrf_enabled=False)
     if request.method == 'POST' and form.validate():
