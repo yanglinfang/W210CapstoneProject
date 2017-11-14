@@ -1,34 +1,21 @@
-<!-- layout.html
-(c) Dr Yves J Hilpisch
-The Python Quants GmbH
--->
 <!doctype html>
+
 <title>ML Based Patent Prior Art Search Tool</title>
 
 <head>
-
+    <meta charset="UTF-8">
+    <link rel=stylesheet type=text/css href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='IPsearch.ico') }}">
 </head>
 
-<link rel=stylesheet type=text/css
-      href="{{ url_for('static', filename='style.css') }}">
-
-<link href='http://fonts.googleapis.com/css?family=PT+Sans'
-      rel='stylesheet' type='text/css'>
-
-<link rel="shortcut icon"
-  href="{{ url_for('static', filename='IPsearch.ico') }}">
-
 <div class=page>
-
   <div class=logo>
     <img src="{{ url_for('static', filename='IPsearch.png') }}" alt="TPQ Logo">
   </div>
 
-  {% block backToSearch %}
+  {% block body %} 
   
-  {% endblock %}
-
-  {% block body %}
-
   {% endblock %}
 </div>

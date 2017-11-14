@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+
+{% macro render_field(field) %}
+  <dd>{{ field.label }}
+  <dd>{{ field(**kwargs)|safe }}
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <dd>{{ error }}</dd>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </dd>
+{% endmacro %}
+
+{% block body %}
+
+<div class="form">
+  <p>
+    Patent application can take 1-3 years to process, cost between 5000$ to 30,000$
+  </p>
+
+  <p>
+    The most critical thing to determine if a patent application is “patentable” or not, is to determine whether there is an
+    existing patent with similar idea or not.
+  </p>
+
+  <p>
+    Existing prior art search can cost 250$-3000$ per search.
+    <br> Information is expanding much faster than what individual USPTO officers or lawyers can handle.
+    <br> Automated search tool is in strong demand.
+    <br>
+  </p>
+
+  <h3>Start free prior art search for your patent now!</h3>
+
+  <div class="text-center mtop40">
+    <button type="button" class="btn btn-primary btn-large page">
+      <a href="{{ url_for('patentMain')}}">
+        <i class="material-icons">play_circle_outline</i>
+      </a>
+    </button>
+    <br>
+   
+  </div>
+</div>
+{% endblock %}

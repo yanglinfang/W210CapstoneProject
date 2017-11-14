@@ -24,6 +24,10 @@ py.sign_in('yanglinfang', 'F5jaY29GDfD8TIenMz9p')
 
 app = Flask(__name__)
 
+@app.route("/", methods=['GET'])
+@app.route("/home", methods=['GET'])
+def home():
+    return render_template('home.html') 
 
 @app.route("/symbol", methods=['GET', 'POST'])
 def main():
@@ -46,7 +50,7 @@ def results(symbol, trend1, trend2):
                            plot=url, table=table)
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/patent", methods=['GET', 'POST'])
 def patentMain():
     form = PatentSearch(csrf_enabled=False)
     if request.method == 'POST' and form.validate():
@@ -59,7 +63,9 @@ def patentMain():
 
 @app.route("/patentResults/<abs>+<sim>+<top>")
 def patentResults(abs, sim, top):
+    # call from query_similarity to get search results 
     data, data_type = query_similarity.search(abs, sim, top)
+    # convert dataframe to table, tell pandas to not truncate width 
     pd.set_option('display.max_colwidth', -1)
     table = data.to_html()
     return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table) 
