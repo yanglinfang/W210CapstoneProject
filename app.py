@@ -70,6 +70,17 @@ def patentResults(abs, sim, top):
     table = data.to_html()
     return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table) 
 
+@app.route("/vr", methods=['GET'])
+def vr():
+    return render_template('vr.html')
+
+@app.route("/nova", methods=['GET'])
+def nova():
+    return render_template('nova.html')
+
 if __name__ == '__main__':
+    #if running local, you can use the following line
     #app.run(host='0.0.0.0', port=7777, debug=True)
+
+    #if deploy to heroku, use the following line instead 
     app.run()
