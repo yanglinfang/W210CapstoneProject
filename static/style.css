@@ -26,3 +26,5 @@ a:visited { color: #B40404; text-decoration:none; }
 .errors { font-size: 0.8em; color: red;}
 
 .form {text-align: center;}
+
+.large-text { width: 80%;}
