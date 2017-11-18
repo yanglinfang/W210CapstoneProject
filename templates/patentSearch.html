@@ -1,5 +1,5 @@
 
-{% extends "layout.html" %}
+{% extends "layout-new.html" %}
 
 {% macro render_field(field) %}
   <dd>{{ field.label }}
@@ -15,28 +15,41 @@
 {% endmacro %}
 
 {% block body %}
-<div class=metanav>
-    <a href="{{ url_for('patentMain')}}">back to patent search</a>
-</div>
-
-<div class="form">
+<div>
     <form action="{{ url_for('patentMain') }}" method=post enctype="multipart/form-data">
-        <dl>
-            <dd>
-                <h1>Search for Patents</h1>
-            </dd>
-            <br>
-            <dd>{{ render_field( form.patent_abs, class_="large-text" ) }}</dd>
-            <br>
-            <dd>{{ render_field( form.patent_cosine_sim_threshold ) }}</dd>
-            <br>
-            <dd>{{ render_field( form.patent_result_top ) }}</dd>
-            <br>
-            <dd>{{ render_field( form.submit ) }}</dd>
-            <br>
-
-        </dl>
+        <div class="row d-md-flex mt-4 text-center">
+            <div class="col-sm-4 mt-4 wow fadeIn">
+                <div class="card">
+                    <div class="card-block">
+                        <h5 class="card-title pt-4 text-orange">Step 1</h5>
+                        <h3 class="card-title text-primary pt-4">Enter Patent Abstract</h3>
+                        <p class="card-text text-muted pb-3 border-bottom">{{ render_field( form.patent_abs, class_="large-text" ) }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mt-0 wow fadeIn">
+                <div class="card pt-4 pb-4">
+                    <div class="card-block">
+                        <h5 class="card-title pt-4 text-orange">Step 2</h5>
+                        <h3 class="card-title text-primary pt-4">Enter Search Param</h3>
+                        <p class="card-text text-muted pb-3 border-bottom">
+                            <div>{{ render_field( form.patent_cosine_sim_threshold ) }}</div>
+                            <div>{{ render_field( form.patent_result_top ) }}</div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 mt-4 wow fadeIn">
+                <div class="card">
+                    <div class="card-block">
+                        <h5 class="card-title pt-4 text-orange">Step 3</h5>
+                        <h3 class="card-title text-primary pt-4">Start Search for Patents</h3>
+                        <p class="card-text text-muted pb-3 border-bottom"></p>
+                        <a class="btn btn-primary mr-2 page-scroll">{{ render_field( form.submit ) }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
-
 {% endblock %}

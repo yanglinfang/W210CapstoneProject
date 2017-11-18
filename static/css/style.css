@@ -111,10 +111,10 @@ section{
 * Background Colors
 ================================================*/
 .bg-texture{
-    background: transparent -webkit-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
-    background: transparent -o-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
-    background: transparent -moz-radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
-    background: transparent radial-gradient(circle farthest-side at right bottom, #ec407a 5%, #e91e63 25%, #d81b60 80%, #c2185b 98%) repeat scroll 0% 0%;
+    background: transparent -webkit-radial-gradient(circle farthest-side at right bottom, #f2efe8 5%, #c2d4d8 25%, #9ad3de 80%, #89bdd3 98%) repeat scroll 0% 0%;
+    background: transparent -o-radial-gradient(circle farthest-side at right bottom, #f2efe8 5%, #c2d4d8 25%, #9ad3de 80%, #89bdd3 98%) repeat scroll 0% 0%;
+    background: transparent -moz-radial-gradient(circle farthest-side at right bottom, #f2efe8 5%, #c2d4d8 25%, #9ad3de 80%, #89bdd3 98%) repeat scroll 0% 0%;
+    background: transparent radial-gradient(circle farthest-side at right bottom, #f2efe8 5%, #c2d4d8 25%, #9ad3de 80%, #89bdd3 98%) repeat scroll 0% 0%;
 }
 .bg-texture-collage{
     background:-webkit-linear-gradient(-45deg, #ffb300 33%, transparent 0%),
@@ -306,3 +306,11 @@ Pricing tables & lists
     text-shadow: none;
     background: #d81b60;
 }
+
+/* For display data form */
+
+.dataframe { margin-left: auto; margin-right: auto;}
+
+.errors { font-size: 0.8em; color: red;}
+
+.large-text { width: 80%;}

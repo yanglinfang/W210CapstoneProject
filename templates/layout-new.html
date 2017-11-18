@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Comply - Bootstrap 4 Multipurpose Template</title>
-        <meta name="description" content="Download free Bootstrap 4 multipurpose template Comply." />
+        <title>IP-mine patent search tool</title>
+        <meta name="description" content="IP-mine. W210 capstone project." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!--Bootstrap 4-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -11,6 +11,7 @@
         <!--icons-->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
         <link rel="stylesheet" href="static/css/style.css" />
+        <link rel="shortcut icon" href="{{ url_for('static', filename='IPsearch.ico') }}">
     </head>
     <body>
         <!--header-->
@@ -18,7 +19,7 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="ion-grid icon-sm"></span>
             </button>
-            <a class="navbar-brand hero-heading" href="#">COMPLY</a>
+            <a class="navbar-brand hero-heading" href="#">IP-mine</a>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mr-3">
@@ -28,14 +29,14 @@
                         <a class="nav-link page-scroll" href="#features">Features</a>
                     </li>
                     <li class="nav-item mr-3">
-                        <a class="nav-link page-scroll" href="#pricing">Pricing</a>
+                        <a class="nav-link page-scroll" href="#searching">Try Now</a>
                     </li>
                     <li class="nav-item mr-3">
                         <a class="nav-link page-scroll" href="#team">Team</a>
                     </li>
-                    <li class="nav-item mr-3">
+                    <!-- <li class="nav-item mr-3">
                         <a class="nav-link page-scroll" href="#blog">Blog</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item mr-3">
                         <a class="nav-link page-scroll" href="#contact">Contact</a>
                     </li>
@@ -51,13 +52,14 @@
                         <img class="img-fluid mx-auto d-block" src="static/img/product.png"/>
                     </div>
                     <div class="col-md-6 col-sm-12 text-white wow fadeIn">
-                        <h2 class="pt-4">Experience <b class="text-primary-light">Virtual Reality </b> With Comply</h2>
+                        <h2 class="pt-4">Experience <b class="text-primary">Patent Search </b> With IP-mine</h2>
                         <p class="mt-5">
-                            The best gets even better. With 10 years of improvements to the code base, and dozens of major implementations, V5 brings further quality and performance advancements.
+                            IP-mine patent search tool is targeted towards patent lawyer offices, patent department within organizations and an initial screen for USPTO.
+                            We will provide early input for inventors, patent lawyers, etc about the similarity of their claims with respect to history of claims that have been approved.                            
                         </p>
                         <p class="mt-5">
-                            <a href="#pricing" class="btn btn-primary mr-2 mb-2 page-scroll">Buy Now</a>
-                            <a href="#download" class="btn btn-white mb-2 page-scroll">Download iOS App</a>
+                            <a href="#searching" class="btn btn-primary mr-2 mb-2 page-scroll">Try Now</a>
+                            <!-- <a href="#download" class="btn btn-white mb-2 page-scroll">Download iOS App</a> -->
                         </p>
                     </div>
                 </div>
@@ -71,12 +73,12 @@
                     <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
                         <h2 class="text-primary">Amazing Features</h2>
                         <p class="lead mt-4">
-                            Comply with plenty of awesome features to <br/>wow the viewers.
+                            Comply with plenty of awesome features to <br/>wow the customers.
                         </p>
                     </div>
                 </div>
                 <div class="row mt-5 text-center">
-                    <div class="col-md-4 wow fadeIn">
+                    <!-- <div class="col-md-4 wow fadeIn">
                         <div class="card">
                             <div class="card-block">
                                 <div class="icon-box">
@@ -88,16 +90,16 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-4 wow fadeIn">
                         <div class="card">
                             <div class="card-block">
                                 <div class="icon-box">
                                     <em class="ion-android-wifi icon-md"></em>
                                 </div>
-                                <h6>Built-in Wifi</h6>
+                                <h6>Targeted Search</h6>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                                    Targeted search designed to suite your need.  
                                 </p>
                             </div>
                         </div>
@@ -108,9 +110,9 @@
                                 <div class="icon-box">
                                     <em class="ion-ios-settings icon-md"></em>
                                 </div>
-                                <h6>Advanced Rate Control</h6>
+                                <h6>Advanced Control</h6>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                                    Full text search using all keywords.  
                                 </p>
                             </div>
                         </div>
@@ -121,14 +123,14 @@
                                 <div class="icon-box">
                                     <em class="ion-ios-cloud-upload-outline icon-md"></em>
                                 </div>
-                                <h6>Unlimited Cloud Storage</h6>
+                                <h6>Easy Download</h6>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                                    Allow exporting results, completely free of charge.  
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 wow fadeIn">
+                    <!-- <div class="col-md-4 wow fadeIn">
                         <div class="card">
                             <div class="card-block">
                                 <div class="icon-box">
@@ -153,7 +155,7 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -165,35 +167,33 @@
                         <img class="img-fluid" src="static/img/product2.jpg" alt="Gallery">
                     </div>
                     <div class="col-sm-6 pl-5 pr-5 pt-5 pb-4 wow fadeInRight">
-                        <h3><a href="#">What's New in Version 5.0?</a></h3>
-                        <p class="lead pt-4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                        <h3><a href="#">What's special about IP-mine?</a></h3>
+                        <p class="lead pt-4">Fast, Accurate, Free</p>
                         <ul class="pt-4 pb-3 list-default">
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aenean commodo ligula eget dolor.</li>
-                            <li>Aenean massa.</li>
-                            <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                            <li>Aenean commodo ligula eget dolor.</li>
-                            <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+                            <li>Our tool is free of charge, fast and reliable.</li>
                         </ul>
-                        <a href="#purchase" class="btn btn-primary mr-2 page-scroll">Get Started with Comply</a>
+                        <a href="#searching" class="btn btn-primary mr-2 page-scroll">Get Started with IP-mine</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--pricing-->
-        <section class="bg-faded" id="pricing">
+        <!--searching-->
+        <section class="bg-faded" id="searching">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
-                        <h2 class="text-primary">Pricing</h2>
+                        <h2 class="text-primary">Search for Patents</h2>
                         <p class="lead pt-3">
-                            Our no-nonsense pricing.
+                            Our well crafted search tool.
                         </p>
                     </div>
                 </div>
-                <div class="row d-md-flex mt-4 text-center">
+                {% block body %} 
+                        
+                {% endblock %}
+
+                <!-- <div class="row d-md-flex mt-4 text-center">
                     <div class="col-sm-4 mt-4 wow fadeIn">
                         <div class="card">
                             <div class="card-block">
@@ -242,26 +242,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!--download-->
-        <section class="bg-orange pt-0" id="download">
-            <div class="container">
-                <div class="row d-md-flex text-center wow fadeIn">
-                    <div class="col-md-6 offset-md-3 col-sm-10 offset-sm-1 col-xs-12">
-                        <h5 class="text-primary">Download Our Mobile App</h5>
-                        <p class="mt-4">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet.
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet.
-                        </p>
-                        <p class="mt-5">
-                            <a href="#" class="mr-2"><img src="static/img/google-play.png" class="store-img"/></a>
-                            <a href="#"><img src="static/img/apple_store.png" class="store-img"/> </a>
-                        </p>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -279,29 +260,29 @@
                 <div class="row d-md-flex mt-5 text-center">
                     <div class="team col-sm-3 mt-2 wow fadeInLeft">
                         <img src="static/img/team-1.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>John Deo</h5>
-                        <p>CEO, Comply</p>
-                    </div>
-                    <div class="team col-sm-3 mt-2 wow fadeIn">
-                        <img src="static/img/team-4.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Kathrine Kaif</h5>
-                        <p>Marketing Head</p>
+                        <h5>Ganesh Sundararajan</h5>
+                        <p>Data Scientist</p>
                     </div>
                     <div class="team col-sm-3 mt-2 wow fadeIn">
                         <img src="static/img/team-2.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Brandon Lee</h5>
-                        <p>Lead Developer</p>
+                        <h5>Nalini Chandhi</h5>
+                        <p>Data Scientist</p>
+                    </div>
+                    <div class="team col-sm-3 mt-2 wow fadeIn">
+                        <img src="static/img/team-3.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
+                        <h5>Nilesh Bhoyar</h5>
+                        <p>Data Scientist</p>
                     </div>
                     <div class="team col-sm-3 mt-2 wow fadeInRight">
-                        <img src="static/img/team-3.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Inza Fererri</h5>
-                        <p>Customer Care</p>
+                        <img src="static/img/team-4.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
+                        <h5>Linfang Yang</h5>
+                        <p>Data Scientist</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!--blog-->
+        <!-- blog
         <section class="bg-faded" id="blog">
             <div class="container">
                 <div class="row">
@@ -322,7 +303,7 @@
                                     <em class="ion-ios-person-outline"></em> Kahtrine Kaif &nbsp;&nbsp;
                                     <em class="ion-ios-time-outline"></em> 5min read
                                 </p>
-                                <h5 class="card-title"><a href="#">Comply version 5.0 is available now.</a></h5>
+                                <h5 class="card-title"><a href="#">IP-mine version 1.0 is available now.</a></h5>
                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet.</p>
                             </div>
                             <div class="card-block text-right">
@@ -366,7 +347,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!--contact-->
         <section class="bg-texture-collage p-0" id="contact">
@@ -374,15 +355,15 @@
                 <div class="row d-md-flex text-white text-center wow fadeIn">
                     <div class="col-sm-4 p-5">
                         <p><em class="ion-ios-telephone-outline icon-md"></em></p>
-                        <p class="lead">+1 5456 87595</p>
+                        <p class="lead">+1 2345 56789</p>
                     </div>
                     <div class="col-sm-4 p-5">
                         <p><em class="ion-ios-email-outline icon-md"></em></p>
-                        <p class="lead">info@comply.com</p>
+                        <p class="lead">info@IPmine.com</p>
                     </div>
                     <div class="col-sm-4 p-5">
                         <p><em class="ion-ios-location-outline icon-md"></em></p>
-                        <p class="lead">Austin, Texas</p>
+                        <p class="lead">San Francisco, CA</p>
                     </div>
                 </div>
             </div>
@@ -393,16 +374,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
-                        <h1>COMPLY</h1>
+                        <h1>IP-mine</h1>
                         <p class="mt-4">
                             <a href="https://twitter.com/" target="_blank"><em class="ion-social-twitter text-twitter-alt icon-sm mr-3"></em></a>
-                            <a href="https://facebook.com/" target="_blank"><em class="ion-social-github text-facebook-alt icon-sm mr-3"></em></a>
+                            <a href="https://github.com/ganeshsberkeley/W210_project_patentability" target="_blank"><em class="ion-social-github text-facebook-alt icon-sm mr-3"></em></a>
                             <a href="https://www.linkedin.com/" target="_blank"><em class="ion-social-linkedin text-linkedin-alt icon-sm mr-3"></em></a>
                             <a href="https://plus.google.com/" target="_blank"><em class="ion-social-googleplus text-google-alt icon-sm mr-3"></em></a>
                         </p>
                         <p class="pt-2 text-muted">
-                            &copy; 2017 Comply Theme. A Bootstrap 4 multipurpose theme by 
-                            <a href="https://wireddots.com">Wired Dots</a>. Developed by <a href="https://twitter.com/attacomsian">@attacomsian</a>
+                            &copy; 2017 IP-mine
                         </p>
                     </div>
                 </div>

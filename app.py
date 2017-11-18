@@ -24,10 +24,6 @@ py.sign_in('yanglinfang', 'F5jaY29GDfD8TIenMz9p')
 
 app = Flask(__name__)
 
-@app.route("/", methods=['GET'])
-@app.route("/home", methods=['GET'])
-def home():
-    return render_template('home.html') 
 
 @app.route("/symbol", methods=['GET', 'POST'])
 def main():
@@ -37,7 +33,6 @@ def main():
                                 trend1=request.form['trend1'],
                                 trend2=request.form['trend2']))
     return render_template('selection.html', form=form)
-
 
 @app.route("/symbol/<symbol>+<trend1>+<trend2>")
 def results(symbol, trend1, trend2):
@@ -49,7 +44,11 @@ def results(symbol, trend1, trend2):
     return render_template('plotly.html', symbol=symbol,
                            plot=url, table=table)
 
+@app.route("/home", methods=['GET'])
+def home():
+    return render_template('home.html')
 
+@app.route("/", methods=['GET'])
 @app.route("/patent", methods=['GET', 'POST'])
 def patentMain():
     form = PatentSearch(csrf_enabled=False)
@@ -69,14 +68,6 @@ def patentResults(abs, sim, top):
     pd.set_option('display.max_colwidth', -1)
     table = data.to_html()
     return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table) 
-
-@app.route("/vr", methods=['GET'])
-def vr():
-    return render_template('vr.html')
-
-@app.route("/nova", methods=['GET'])
-def nova():
-    return render_template('nova.html')
 
 if __name__ == '__main__':
     #if running local, you can use the following line
