@@ -69,6 +69,10 @@ def patentResults(abs, sim, top):
     table = data.to_html()
     return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table) 
 
+@app.route("/patent/wordcloud", methods=['GET'])
+def wordCloud():
+    return render_template('wordCloud.html')
+
 if __name__ == '__main__':
     #if running local, you can use the following line
     #app.run(host='0.0.0.0', port=7777, debug=True)
