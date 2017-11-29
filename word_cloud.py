@@ -35,7 +35,7 @@ def getDict(inputList):
     return counts 
 
 def saveToCsv(fName, counts, topWords):
-    with open(prefix + fName + ending, 'w') as csvfile:
+    with open(prefix + fName + '_' + str(topWords) + ending, 'w') as csvfile:
         fieldnames = header
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -56,7 +56,7 @@ def createTitleSummaryFile(fName, topWords):
                 wordList += loadTitles(f[0], f[1])
         counts = getDict(wordList)
         saveToCsv(fName, counts, topWords)
-    return prefix + fName + ending
+    return prefix + fName + '_' + str(topWords) + ending
         
         
     

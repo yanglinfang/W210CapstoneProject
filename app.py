@@ -78,16 +78,18 @@ def patentResults(abs, sim, top):
     return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table)
 
 
-@app.route("/patent/wordcloud", methods=['GET'])
-def wordCloud():
-    fName = 'x0-0x'
-    filePath = "../" + word_cloud.createTitleSummaryFile(fName, 200)
+@app.route("/patent/wordcloud/<cluster_level_1>+<cluster_level_2>+<top_n>", methods=['GET'])
+def wordCloud(cluster_level_1, cluster_level_2, top_n):
+    fName = cluster_level_1 + '' + cluster_level_2
+    if(len(fName)!=2):
+        fName = 'xx' #if user input invalid cluster, we will default to show all topics from level 1
+    filePath = "../../" + word_cloud.createTitleSummaryFile(fName, int(top_n))
     return render_template('wordCloud.html', filePath=filePath)
 
 
 if __name__ == '__main__':
     #if running local, you can use the following line
-    #app.run(host='0.0.0.0', port=7777, debug=True)
+    app.run(host='0.0.0.0', port=7777, debug=True)
 
     #if deploy to heroku, use the following line instead
-    app.run()
+    #app.run()
