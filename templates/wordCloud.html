@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
     var fill = d3.scale.category20();
-    d3.csv("../static/data/topics/summary_xx.csv", function (d) {
+    d3.csv("{{ filePath }}" , function (d) {
         return {
             text: d.word,
             size: +d.count
