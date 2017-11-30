@@ -77,6 +77,10 @@ def patentResults(abs, sim, top):
     table = data.to_html()
     return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table)
 
+@app.route('/static/data/topics/<path:path>')
+def send_data(path):
+    return send_from_directory('static/data/topics', path)
+
 @app.route("/patent/wordcloud/<cluster_level_1>+<cluster_level_2>+<top_n>", methods=['GET'])
 def wordCloud(cluster_level_1, cluster_level_2, top_n):
     fName = cluster_level_1 + '' + cluster_level_2
@@ -85,9 +89,12 @@ def wordCloud(cluster_level_1, cluster_level_2, top_n):
     filePath = "../../" + word_cloud.createTitleSummaryFile(fName, int(top_n))
     return render_template('wordCloud.html', filePath=filePath)
 
-@app.route('/static/data/topics/<path:path>')
-def send_data(path):
-    return send_from_directory('static/data/topics', path)
+@app.route("/patent/wordcloud", methods=['GET'])
+def wordCloudToggle():
+    cluster_level_1 = 'x'
+    cluster_level_2 = 'x'
+    top_n = 400
+    return wordCloud(cluster_level_1, cluster_level_2, top_n)
 
 if __name__ == '__main__':
     #if running local, you can use the following line
