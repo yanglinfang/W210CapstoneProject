@@ -83,7 +83,7 @@ def wordCloud(cluster_level_1, cluster_level_2, top_n):
     fName = cluster_level_1 + '' + cluster_level_2
     if(len(fName)!=2):
         fName = 'xx' #if user input invalid cluster, we will default to show all topics from level 1
-    filePath = "../../" + word_cloud.createTitleSummaryFile(fName, int(top_n))
+    filePath = word_cloud.createTitleSummaryFile(fName, int(top_n))
     return render_template('wordCloud.html', filePath=filePath)
 
 
