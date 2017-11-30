@@ -89,7 +89,7 @@ def wordCloud(cluster_level_1, cluster_level_2, top_n):
 
 if __name__ == '__main__':
     #if running local, you can use the following line
-    #app.run(host='0.0.0.0', port=7777, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
     #if deploy to heroku, use the following line instead
-    app.run()
+    #app.run()
