@@ -85,9 +85,9 @@ def wordCloud(cluster_level_1, cluster_level_2, top_n):
     filePath = word_cloud.createTitleSummaryFile(fName, int(top_n))
     return render_template('wordCloud.html', filePath=filePath)
 
-@app.route('/static/data/<path:path>')
+@app.route('/static/data/topics/<path:path>')
 def send_data(path):
-    return send_from_directory('/static/data/', path)
+    return send_from_directory('static/data/topics', path)
 
 if __name__ == '__main__':
     #if running local, you can use the following line
