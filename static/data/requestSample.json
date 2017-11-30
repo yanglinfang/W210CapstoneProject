@@ -1,6 +1,8 @@
 {
     "claim_text": {
-        "claim": "The process of claim 1 wherein the amount of polycarboxylic acid employed in the initial charge is equal to between 6 to 12 weight percent in excess of stoichiometry. 4. The process of claim 1 wherein the polyhydric alcohol is selected from the group consisting of ethylene glycol, diethylene glycol, 1,4-butane diol and mixtures thereof. 1. In a process for the preparation of a polyester polyol by the esterification of a polycarboxylic acid or anhydride with a polyhydric alcohol the improvement which comprises:a. initially charging to a reactor an amount of a polycarboxylic acid or anhydride equal to between 3 to 16 weight percent in excess of stoichiometry;b. adding to the reactor a polyhydric alcohol and heating the charge to a temperature between 130.degree. to 240.degree. C.;c. removing from the reactor between 90 to 95 weight percent of the water of esterification resulting from step (b);d. charging to the reactor an amount of polyhydric alcohol substantially equivalent in weight to the amount of water of esterification removed from step (c); ande. continuing the esterification reaction until a polyol having an acid number of less than two is obtained.",
-        "topN": "5"
+        "base_url": "http://ec2-54-89-199-144.compute-1.amazonaws.com:8080/patentsearch/",
+        "query_string": "A new and distinct cultivar of ornamental Hosta plant named Beckoning; as herein described and illustrated, with yellowish leaf center and blue-green margin, suitable as a potted plant, for the garden, and for cut flower arrangements.",
+        "cosine_sim_threshold": 0.3,
+        "top": 3
     }
 }
