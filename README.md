@@ -22,7 +22,7 @@ kill 1234
 Note: "&" can be used at the end to detach process 
 
 ##### Use forever 
-forever start -c python your_script.py
+forever start -c python app.py
 
 forever stop app.py
 
