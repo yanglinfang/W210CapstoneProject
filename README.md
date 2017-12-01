@@ -19,13 +19,15 @@ lsof -i tcp:7777
 kill 1234 
 
 #### To run the flask app after closing the command window:
+Note: "&" can be used at the end to detach process 
+
 ##### Use forever 
 forever start -c python your_script.py
 
-forever stop your_script.py
+forever stop app.py
 
 ##### Use nohup 
-nohup python -u code.py &
+nohup python -u app.py &
 
 ##### Use python 
 python app.py &
