@@ -3,12 +3,17 @@ import os.path
 import json
 import numpy as np
 import datetime
+import operator
 
 pathPrefix = 'static/data/chartdatafiles/'
 prefix = pathPrefix + 'chart_cluster_data_'
 ending = '.csv'
-headerKeys = ['pub_year', 'appl_year', 'grant_year', 'years_to_publish', 'years_to_grant', 'patent_doc_kind', 'appl_change_count', 'number_of_claims']
+
+headerKeys = ['pub_year', 'appl_year', 'grant_year', 'years_to_publish',
+              'years_to_grant', 'patent_doc_kind', 'appl_change_count', 'number_of_claims']
+
 headerValue = 'count'
+
 
 def loadStatsFromOneFile(clusterStr):
     fName = ''
@@ -39,6 +44,7 @@ def loadStatsFromOneFile(clusterStr):
                     dicts[rowCount][j[keystr]] = int(j[headerValue])
 
     return dicts
+
 
 def mergeDicts(dict_full, dict_temp):
     for k, v in dict_temp.items():
@@ -80,15 +86,18 @@ def loadStatsFromFiles(clusterStr):
 
     return dicts
 
-def saveToCsv(clusterStr, data_dict, header):
+
+def saveToCsv(clusterStr, data_dict_original, header):
     fileToSave = prefix + clusterStr + '_' + header[0] + ending
+    data_dict = sorted(data_dict_original.items(), key=operator.itemgetter(0))
+
     if os.path.isfile(fileToSave) == False:
         with open(fileToSave, 'w') as csvfile:
             fieldnames = header
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
-            for key in data_dict:
-                writer.writerow({header[0]: key, header[1]: data_dict[key]})
+            for key, value in data_dict:
+                writer.writerow({header[0]: key, header[1]: value})
     return fileToSave
 
 

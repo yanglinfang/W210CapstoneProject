@@ -23,3 +23,15 @@ a:visited { color: #B40404; text-decoration:none; }
 .form {text-align: center;}
 
 .large-text { width: 80%;}
+
+/* style for bar chart */
+.axis {
+    font: 10px sans-serif;
+  }
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
