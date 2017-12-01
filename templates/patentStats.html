@@ -1,0 +1,44 @@
+
+{% extends "layout-old.html" %}
+{% block body %}
+<div id='pub_year_chart'></div>
+<div id='appl_year_chart'></div>
+<div id='years_to_publish_chart'></div>
+
+<script type="text/javascript">
+    var fill = d3.scale.category20();
+    d3.csv("{{ pub_year_file }}" , function (d) {
+        return {
+            text: d.pub_year,
+            size: +d.count
+        }
+    },
+        function (data) {
+
+        });
+
+    d3.csv("{{ appl_year_file }}" , function (d) {
+        return {
+            text: d.appl_year,
+            size: +d.count
+        }
+    },
+        function (data) {
+
+        });
+
+    d3.csv("{{ years_to_publish_file }}" , function (d) {
+        return {
+            text: d.years_to_publish,
+            size: +d.count
+        }
+    },
+        function (data) {
+
+        });
+
+
+        
+</script>
+{% endblock %}
+

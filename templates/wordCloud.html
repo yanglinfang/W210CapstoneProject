@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
     var fill = d3.scale.category20();
-    d3.csv("{{ filePath }}" , function (d) {
+    d3.csv("{{ filePath }}", function (d) {
         return {
             text: d.word,
             size: +d.count
@@ -25,7 +25,6 @@
                 })
                 .on("end", draw)
                 .start();
-
             function draw(words) {
                 console.log(words);
                 d3.select("#wordCloudChart").append("svg")

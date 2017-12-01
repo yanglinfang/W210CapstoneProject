@@ -18,6 +18,7 @@ import query_similarity
 import csv
 import os.path
 import word_cloud
+import patent_stats
 
 # login to plot.ly
 py.sign_in('yanglinfang', 'F5jaY29GDfD8TIenMz9p')
@@ -78,14 +79,14 @@ def patentResults(abs, sim, top):
     return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table)
 
 @app.route('/static/data/topics/<path:path>')
-def send_data(path):
+def send_title_data(path):
     return send_from_directory('static/data/topics', path)
 
 @app.route("/patent/wordcloud/<cluster_level_1>+<cluster_level_2>+<top_n>", methods=['GET'])
 def wordCloud(cluster_level_1, cluster_level_2, top_n):
     fName = cluster_level_1 + '' + cluster_level_2
     if(len(fName)!=2):
-        fName = 'xx' #if user input invalid cluster, we will default to show all topics from level 1
+        fName = 'xx' #if user input invalid cluster, we will default to show all topics
     filePath = "../../" + word_cloud.createTitleSummaryFile(fName, int(top_n))
     return render_template('wordCloud.html', filePath=filePath)
 
@@ -95,6 +96,21 @@ def wordCloudToggle():
     cluster_level_2 = 'x'
     top_n = 400
     return wordCloud(cluster_level_1, cluster_level_2, top_n)
+
+@app.route('/static/data/chartdatafiles/<path:path>')
+def send_chartdatafiles_data(path):
+    return send_from_directory('static/data/chartdatafiles', path)
+
+@app.route("/patent/patentstats/<cluster_level_1>+<cluster_level_2>", methods=['GET'])
+def patentStats(cluster_level_1, cluster_level_2):
+    fName = cluster_level_1 + '' + cluster_level_2
+    if(len(fName)!=2):
+        fName = 'xx' #if user input invalid cluster, we will default to show all topics 
+    files = patent_stats.createStatsSummary(fName)
+    pub_year_file = "../../" + files[0]
+    appl_year_file = "../../" + files[1]
+    years_to_publish_file= "../../" + files[2]
+    return render_template('patentStats.html', pub_year_file=pub_year_file, appl_year_file=appl_year_file, years_to_publish_file = years_to_publish_file)
 
 if __name__ == '__main__':
     #if running local, you can use the following line
