@@ -109,8 +109,7 @@ def patentStats(cluster_level_1, cluster_level_2):
     files = patent_stats.createStatsSummary(fName)
     pub_year_file = "../../" + files[0]
     appl_year_file = "../../" + files[1]
-    years_to_publish_file= "../../" + files[2]
-    return render_template('patentStats.html', pub_year_file=pub_year_file, appl_year_file=appl_year_file, years_to_publish_file = years_to_publish_file)
+    return render_template('patentStats.html', pub_year_file=pub_year_file, appl_year_file=appl_year_file)
 
 if __name__ == '__main__':
     #if running local, you can use the following line
