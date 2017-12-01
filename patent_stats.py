@@ -14,6 +14,8 @@ headerKeys = ['pub_year', 'appl_year', 'grant_year', 'years_to_publish',
 
 headerValue = 'count'
 
+def findIndex(keyStr):
+    return headerKeys.index(keyStr)
 
 def loadStatsFromOneFile(clusterStr):
     fName = ''

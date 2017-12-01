@@ -101,15 +101,15 @@ def wordCloudToggle():
 def send_chartdatafiles_data(path):
     return send_from_directory('static/data/chartdatafiles', path)
 
-@app.route("/patent/patentstats/<cluster_level_1>+<cluster_level_2>", methods=['GET'])
-def patentStats(cluster_level_1, cluster_level_2):
+@app.route("/patent/patentstats/<cluster_level_1>+<cluster_level_2>+<keyName>", methods=['GET'])
+def patentStats(cluster_level_1, cluster_level_2, keyName):
     fName = cluster_level_1 + '' + cluster_level_2
     if(len(fName)!=2):
         fName = 'xx' #if user input invalid cluster, we will default to show all topics 
     files = patent_stats.createStatsSummary(fName)
-    pub_year_file = "../../" + files[0]
-    appl_year_file = "../../" + files[1]
-    return render_template('patentStats.html', pub_year_file=pub_year_file, appl_year_file=appl_year_file)
+    i = patent_stats.findIndex(keyName) 
+    fileName = "../../" + files[i]
+    return render_template('patentStats.html', keyName=keyName, fileName=fileName)
 
 if __name__ == '__main__':
     #if running local, you can use the following line
