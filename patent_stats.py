@@ -14,8 +14,19 @@ headerKeys = ['pub_year', 'appl_year', 'grant_year', 'years_to_publish',
 
 headerValue = 'count'
 
+xLabels = ['Publication Year', 'Application Year', 'Grant Year', 'Years Took to Publish',
+              'Years Took to Grant', 'Patent Document Kind', 'Patent Application Change Count', 'Number of Claims']
+yLabels = ['Count of Patents', 'Count of Patents', 'Count of Patents', 'Count of Patents',
+              'Count of Patents', 'Count of Patents', 'Count of Patents', 'Count of Patents']
+titleLabels = ['Patents by Publication Year', 'Patents by Application Year', 'Patents by Grant Year', 'Patents by Years to Publish',
+              'Patents by Years to Grant', 'Patents by Kind', 'Patents by Application Change Count', 'Patents by Number of Claims']
+
 def findIndex(keyStr):
     return headerKeys.index(keyStr)
+
+def findLables(keyStr):
+    i = headerKeys.index(keyStr)
+    return [xLabels[i], yLabels[i], titleLabels[i]]
 
 def loadStatsFromOneFile(clusterStr):
     fName = ''

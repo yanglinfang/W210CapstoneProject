@@ -41,7 +41,7 @@ a:visited { color: #B40404; text-decoration:none; }
 }
 
 .x.axis path {
-  display: none;
+  color: black;
 }
 
 .d3-tip {
@@ -51,6 +51,11 @@ a:visited { color: #B40404; text-decoration:none; }
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 2px;
+}
+
+.axis-label {
+    font-weight: bold;
+    font-size: 18px;
 }
 
 /* Creates a small triangle extender for the tooltip */
