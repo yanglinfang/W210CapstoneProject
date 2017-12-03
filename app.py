@@ -55,6 +55,9 @@ def results(symbol, trend1, trend2):
 def home():
     return render_template('home.html')
 
+@app.route("/search", methods=['GET'])
+def search():
+    return render_template('search.html')
 
 @app.route("/", methods=['GET'])
 @app.route("/patent", methods=['GET', 'POST'])

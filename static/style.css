@@ -35,3 +35,80 @@ a:visited { color: #B40404; text-decoration:none; }
     stroke: #000;
     shape-rendering: crispEdges;
   }
+
+
+/* style for patent search result */
+
+.add-on .input-group-btn > .btn {
+    border-left-width:0;left:-2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  }
+  
+  /* stop the glowing blue shadow */
+  .add-on .form-control:focus {
+   box-shadow:none;
+   -webkit-box-shadow:none; 
+   border-color:#cccccc; 
+  }
+  
+  .form-control{width:40%}
+  
+  abbr[title] {
+      border-bottom: none !important;
+      text-decoration: none !important;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  table caption {
+      padding: .5em 0;
+  }
+  
+  .table-bordered{
+      align: center;
+    font-size: 14px;
+    width: 100% !important;
+  }
+  
+  @media screen and (max-width: 767px) {
+    table caption {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+  
+  hr { 
+      display: block;
+      border-width: 5px;
+      border-color: #5F9EA0 !important;
+  }
+  
+  #ex1Slider .slider-selection {
+      background: #BABABA;
+  }
+  
+  .p {
+    text-align: center;
+    padding-top: 140px;
+    font-size: 14px;
+  }
+  
+  .nav-tabs li a{
+      display: block;
+      padding: 20px 15px;
+      background: #fff;
+      font-size: 15px !important;
+      font-weight: 700;
+      color: #000080 !important;
+      text-align: center;
+      border-radius: 0;
+      border: none;
+      margin-right: 0;
+      overflow: hidden;
+      z-index: 1;
+      position: relative;
+      transition: all 0.3s ease 0s;
+  }
+  
