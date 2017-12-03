@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
 
-    var margin = { top: 20, right: 20, bottom: 70, left: 40 },
+    var margin = { top: 40, right: 40, bottom: 40, left: 40 },
         width = 600 - margin.left - margin.right,
         height = 300 - margin.top - margin.bottom;
 
@@ -23,12 +23,21 @@
         .ticks(10)
         .tickFormat(d3.format("1000s"));
 
+    var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+            return "<strong>Count:</strong> <span style='color:red'>" + d.count + "</span>";
+        })
+
     var svg = d3.select("#{{keyName}}_chart").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.call(tip);
 
     d3.csv("{{fileName}}", function (error, data) {
 
@@ -62,18 +71,21 @@
         svg.selectAll("bar")
             .data(data)
             .enter().append("rect")
-            .style("fill", "steelblue")
+            .attr("class", "bar")
             .attr("x", function (d) { return x(d["{{keyName}}"]); })
             .attr("width", x.rangeBand())
             .attr("y", function (d) { return y(d.count); })
-            .attr("height", function (d) { return height - y(d.count); });
+            .attr("height", function (d) { return height - y(d.count); })
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide);
 
         svg.append("text")
             .attr("x", (width / 2))             
             .attr("y", 0 - (margin.top / 2))
             .attr("text-anchor", "middle")  
-            .style("font-size", "16px")  
+            .style("font-size", "20px")  
             .text("{{keyName}}");
+
     });
 
 </script>
