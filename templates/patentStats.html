@@ -15,13 +15,13 @@
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .orient("bottom")
-        .tickFormat(d3.format(""));
+        .orient("bottom");
 
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
-        .ticks(10);
+        .ticks(10)
+        .tickFormat(d3.format("1000s"));
 
     var svg = d3.select("#{{keyName}}_chart").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -33,7 +33,6 @@
     d3.csv("{{fileName}}", function (error, data) {
 
         data.forEach(function (d) {
-            d["{{keyName}}"] = +d["{{keyName}}"];
             d.count = +d.count;
         });
 
