@@ -111,8 +111,9 @@ def patentStats(cluster_level_1, cluster_level_2, keyName):
         fName = 'xx' #if user input invalid cluster, we will default to show all topics 
     files = patent_stats.createStatsSummary(fName)
     i = patent_stats.findIndex(keyName) 
+    labels = patent_stats.findLables(keyName) 
     fileName = "../../" + files[i]
-    return render_template('patentStats.html', keyName=keyName, fileName=fileName)
+    return render_template('patentStats.html', keyName=keyName, fileName=fileName, labels=labels)
 
 if __name__ == '__main__':
     #if running local, you can use the following line

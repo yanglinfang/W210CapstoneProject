@@ -1,87 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>IP-mine patent search tool</title>
-        <meta name="description" content="IP-mine. W210 capstone project." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--Bootstrap 4-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-        <!--icons-->
-        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-        <link rel="stylesheet" href="static/css/style.css" />
-        <link rel="shortcut icon" href="{{ url_for('static', filename='IPsearch.ico') }}">
-        <script src="https://d3js.org/d3.v3.min.js"></script>
-        <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-        <script src="../../static/js/d3.layout.cloud.js"></script>
-    </head>
-    <body>
-        <!--header-->
-        <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top sticky-navigation">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="ion-grid icon-sm"></span>
-            </button>
-            <a class="navbar-brand hero-heading" href="#">IP-mine</a>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mr-3">
-                        <a class="nav-link page-scroll" href="#main">Product <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item mr-3">
-                        <a class="nav-link page-scroll" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item mr-3">
-                        <a class="nav-link page-scroll" href="#searching">Try Now</a>
-                    </li>
-                    <li class="nav-item mr-3">
-                        <a class="nav-link page-scroll" href="#team">Team</a>
-                    </li>
-                    <!-- <li class="nav-item mr-3">
+
+<head>
+    <meta charset="utf-8">
+    <title>IP-mine patent search tool</title>
+    <meta name="description" content="IP-mine. W210 capstone project." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!--icons-->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='IPsearch.ico') }}">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="../../static/js/d3.layout.cloud.js"></script>
+</head>
+
+<body>
+    <!--header-->
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top sticky-navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="ion-grid icon-sm"></span>
+        </button>
+        <a class="navbar-brand hero-heading" href="#">IP-mine</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mr-3">
+                    <a class="nav-link page-scroll" href="#main">Product
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link page-scroll" href="#features">Features</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link page-scroll" href="#searching">Try Now</a>
+                </li>
+                <li class="nav-item mr-3">
+                    <a class="nav-link page-scroll" href="#team">Team</a>
+                </li>
+                <!-- <li class="nav-item mr-3">
                         <a class="nav-link page-scroll" href="#blog">Blog</a>
                     </li> -->
-                    <li class="nav-item mr-3">
-                        <a class="nav-link page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                <li class="nav-item mr-3">
+                    <a class="nav-link page-scroll" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-        <!--main section-->
-        <section class="bg-texture hero" id="main">
-            <div class="container">
-                <div class="row d-md-flex brand">
-                    <div class="col-md-6 hidden-sm-down wow fadeIn">
-                        <img class="img-fluid mx-auto d-block" src="static/img/product.png"/>
-                    </div>
-                    <div class="col-md-6 col-sm-12 text-white wow fadeIn">
-                        <h2 class="pt-4">Experience <b class="text-primary">Patent Search </b> With IP-mine</h2>
-                        <p class="mt-5">
-                            IP-mine patent search tool is targeted towards patent lawyer offices, patent department within organizations and an initial screen for USPTO.
-                            We will provide early input for inventors, patent lawyers, etc about the similarity of their claims with respect to history of claims that have been approved.                            
-                        </p>
-                        <p class="mt-5">
-                            <a href="#searching" class="btn btn-primary mr-2 mb-2 page-scroll">Try Now</a>
-                            <!-- <a href="#download" class="btn btn-white mb-2 page-scroll">Download iOS App</a> -->
-                        </p>
-                    </div>
+    <!--main section-->
+    <section class="bg-texture hero" id="main">
+        <div class="container">
+            <div class="row d-md-flex brand">
+                <div class="col-md-6 hidden-sm-down wow fadeIn">
+                    <img class="img-fluid mx-auto d-block" src="static/img/product.png" />
+                </div>
+                <div class="col-md-6 col-sm-12 text-white wow fadeIn">
+                    <h2 class="pt-4">Experience
+                        <b class="text-primary">Patent Search </b> With IP-mine</h2>
+                    <p class="mt-5">
+                        IP-mine patent search tool is targeted towards patent lawyer offices, patent department within organizations and an initial
+                        screen for USPTO. We will provide early input for inventors, patent lawyers, etc about the similarity
+                        of their claims with respect to history of claims that have been approved.
+                    </p>
+                    <p class="mt-5">
+                        <a href="#searching" class="btn btn-primary mr-2 mb-2 page-scroll">Try Now</a>
+                        <!-- <a href="#download" class="btn btn-white mb-2 page-scroll">Download iOS App</a> -->
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!--features-->
-        <section class="bg-faded" id="features">
-            <div class="container">
-                <div class="row mb-3">
-                    <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
-                        <h2 class="text-primary">Amazing Features</h2>
-                        <p class="lead mt-4">
-                            Comply with plenty of awesome features to <br/>wow the customers.
-                        </p>
-                    </div>
+    <!--features-->
+    <section class="bg-faded" id="features">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
+                    <h2 class="text-primary">Amazing Features</h2>
+                    <p class="lead mt-4">
+                        Comply with plenty of awesome features to
+                        <br/>wow the customers.
+                    </p>
                 </div>
-                <div class="row mt-5 text-center">
-                    <!-- <div class="col-md-4 wow fadeIn">
+            </div>
+            <div class="row mt-5 text-center">
+                <!-- <div class="col-md-4 wow fadeIn">
                         <div class="card">
                             <div class="card-block">
                                 <div class="icon-box">
@@ -94,46 +103,46 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="col-md-4 wow fadeIn">
-                        <div class="card">
-                            <div class="card-block">
-                                <div class="icon-box">
-                                    <em class="ion-android-wifi icon-md"></em>
-                                </div>
-                                <h6>Targeted Search</h6>
-                                <p>
-                                    Targeted search designed to suite your need.  
-                                </p>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <div class="icon-box">
+                                <em class="ion-android-wifi icon-md"></em>
                             </div>
+                            <h6>Targeted Search</h6>
+                            <p>
+                                Targeted search designed to suite your need.
+                            </p>
                         </div>
                     </div>
-                    <div class="col-md-4 wow fadeIn">
-                        <div class="card">
-                            <div class="card-block">
-                                <div class="icon-box">
-                                    <em class="ion-ios-settings icon-md"></em>
-                                </div>
-                                <h6>Advanced Control</h6>
-                                <p>
-                                    Full text search using all keywords.  
-                                </p>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <div class="icon-box">
+                                <em class="ion-ios-settings icon-md"></em>
                             </div>
+                            <h6>Advanced Control</h6>
+                            <p>
+                                Full text search using all keywords.
+                            </p>
                         </div>
                     </div>
-                    <div class="col-md-4 wow fadeIn">
-                        <div class="card">
-                            <div class="card-block">
-                                <div class="icon-box">
-                                    <em class="ion-ios-cloud-upload-outline icon-md"></em>
-                                </div>
-                                <h6>Easy Download</h6>
-                                <p>
-                                    Allow exporting results, completely free of charge.  
-                                </p>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <div class="icon-box">
+                                <em class="ion-ios-cloud-upload-outline icon-md"></em>
                             </div>
+                            <h6>Easy Download</h6>
+                            <p>
+                                Allow exporting results, completely free of charge.
+                            </p>
                         </div>
                     </div>
-                    <!-- <div class="col-md-4 wow fadeIn">
+                </div>
+                <!-- <div class="col-md-4 wow fadeIn">
                         <div class="card">
                             <div class="card-block">
                                 <div class="icon-box">
@@ -159,58 +168,141 @@
                             </div>
                         </div>
                     </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-faded" id="Special">
+        <div class="container-fluid">
+            <div class="row d-md-flex mt-5">
+                <div class="col-sm-6 p-0 wow fadeInLeft">
+                    <img class="img-fluid" src="static/img/product2.jpg" alt="Gallery">
+                </div>
+                <div class="col-sm-6 pl-5 pr-5 pt-5 pb-4 wow fadeInRight">
+                    <h3>
+                        <a href="#">What's special about IP-mine?</a>
+                    </h3>
+                    <p class="lead pt-4">Fast, Accurate, Free</p>
+                    <ul class="pt-4 pb-3 list-default">
+                        <li>Our tool is free of charge, fast and reliable.</li>
+                    </ul>
+                    <a href="#searching" class="btn btn-primary mr-2 page-scroll">Get Started with IP-mine</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="bg-alt p-0">
-            <div class="container-fluid">
-                <div class="row d-md-flex mt-5">
-                    <div class="col-sm-6 p-0 wow fadeInLeft">
-                        <img class="img-fluid" src="static/img/product2.jpg" alt="Gallery">
+    <section class="bg-faded" id="Explore">
+        <div class="container-fluid">
+            <div class="row mb-3">
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
+                    <h2 class="text-primary">Explorer Patent Data</h2>
+                    <p class="lead mt-4">
+                        Select cluster (TODO: add selector)
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/wordcloud/1+x+400"></iframe>
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-sm-6 pl-5 pr-5 pt-5 pb-4 wow fadeInRight">
-                        <h3><a href="#">What's special about IP-mine?</a></h3>
-                        <p class="lead pt-4">Fast, Accurate, Free</p>
-                        <ul class="pt-4 pb-3 list-default">
-                            <li>Our tool is free of charge, fast and reliable.</li>
-                        </ul>
-                        <a href="#searching" class="btn btn-primary mr-2 page-scroll">Get Started with IP-mine</a>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+pub_year"></iframe>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+appl_year"></iframe>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+grant_year"></iframe>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+years_to_publish"></iframe>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+years_to_grant"></iframe>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+patent_doc_kind"></iframe>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+number_of_claims"></iframe>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wow fadeIn">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+appl_change_count"></iframe>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="bg-alt p-0">
-            <div class="container-fluid">
-                <div class="row d-md-flex mt-5">
-                    <div class="col-sm-6 p-0 wow fadeInLeft">
-                        <iframe width=100% height="650" frameborder="0" seamless="seamless" scrolling="no" src="/patent/wordcloud/x+x+400"></iframe>
-                    </div>
-                    <div class="col-sm-6 pl-5 pr-5 pt-5 pb-4 wow fadeInRight">
-                        <h3><a href="#">Explore Patent Data</a></h3>
-                        <iframe width=100% height="650" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/x+x+pub_year"></iframe>
-                    </div>
+    <!--searching-->
+    <section class="bg-faded" id="searching">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
+                    <h2 class="text-primary">Search for Patents</h2>
+                    <p class="lead pt-3">
+                        Our well crafted search tool.
+                    </p>
                 </div>
             </div>
-        </section>
+            {% block body %} {% endblock %}
 
-        <!--searching-->
-        <section class="bg-faded" id="searching">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
-                        <h2 class="text-primary">Search for Patents</h2>
-                        <p class="lead pt-3">
-                            Our well crafted search tool.
-                        </p>
-                    </div>
-                </div>
-                {% block body %} 
-                        
-                {% endblock %}
-
-                <!-- <div class="row d-md-flex mt-4 text-center">
+            <!-- <div class="row d-md-flex mt-4 text-center">
                     <div class="col-sm-4 mt-4 wow fadeIn">
                         <div class="card">
                             <div class="card-block">
@@ -260,46 +352,46 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!--team-->
-        <section class="bg-alt" id="team">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
-                        <h2 class="text-primary">Our Team</h2>
-                        <p class="lead pt-3">
-                            Meet our awesome team.
-                        </p>
-                    </div>
-                </div>
-                <div class="row d-md-flex mt-5 text-center">
-                    <div class="team col-sm-3 mt-2 wow fadeInLeft">
-                        <img src="static/img/team-1.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Ganesh Sundararajan</h5>
-                        <p>Data Scientist</p>
-                    </div>
-                    <div class="team col-sm-3 mt-2 wow fadeIn">
-                        <img src="static/img/team-2.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Nalini Chandhi</h5>
-                        <p>Data Scientist</p>
-                    </div>
-                    <div class="team col-sm-3 mt-2 wow fadeIn">
-                        <img src="static/img/team-3.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Nilesh Bhoyar</h5>
-                        <p>Data Scientist</p>
-                    </div>
-                    <div class="team col-sm-3 mt-2 wow fadeInRight">
-                        <img src="static/img/team-4.jpg" alt="Male" class="img-team img-fluid rounded-circle"/>
-                        <h5>Linfang Yang</h5>
-                        <p>Data Scientist</p>
-                    </div>
+    <!--team-->
+    <section class="bg-alt" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center">
+                    <h2 class="text-primary">Our Team</h2>
+                    <p class="lead pt-3">
+                        Meet our awesome team.
+                    </p>
                 </div>
             </div>
-        </section>
+            <div class="row d-md-flex mt-5 text-center">
+                <div class="team col-sm-3 mt-2 wow fadeInLeft">
+                    <img src="static/img/team-1.jpg" alt="Male" class="img-team img-fluid rounded-circle" />
+                    <h5>Ganesh Sundararajan</h5>
+                    <p>Data Scientist</p>
+                </div>
+                <div class="team col-sm-3 mt-2 wow fadeIn">
+                    <img src="static/img/team-2.jpg" alt="Male" class="img-team img-fluid rounded-circle" />
+                    <h5>Nalini Chandhi</h5>
+                    <p>Data Scientist</p>
+                </div>
+                <div class="team col-sm-3 mt-2 wow fadeIn">
+                    <img src="static/img/team-3.jpg" alt="Male" class="img-team img-fluid rounded-circle" />
+                    <h5>Nilesh Bhoyar</h5>
+                    <p>Data Scientist</p>
+                </div>
+                <div class="team col-sm-3 mt-2 wow fadeInRight">
+                    <img src="static/img/team-4.jpg" alt="Male" class="img-team img-fluid rounded-circle" />
+                    <h5>Linfang Yang</h5>
+                    <p>Data Scientist</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- blog
+    <!-- blog
         <section class="bg-faded" id="blog">
             <div class="container">
                 <div class="row">
@@ -366,51 +458,66 @@
             </div>
         </section> -->
 
-        <!--contact-->
-        <section class="bg-texture-collage p-0" id="contact">
-            <div class="container">
-                <div class="row d-md-flex text-white text-center wow fadeIn">
-                    <div class="col-sm-4 p-5">
-                        <p><em class="ion-ios-telephone-outline icon-md"></em></p>
-                        <p class="lead">+1 2345 56789</p>
-                    </div>
-                    <div class="col-sm-4 p-5">
-                        <p><em class="ion-ios-email-outline icon-md"></em></p>
-                        <p class="lead">info@IPmine.com</p>
-                    </div>
-                    <div class="col-sm-4 p-5">
-                        <p><em class="ion-ios-location-outline icon-md"></em></p>
-                        <p class="lead">San Francisco, CA</p>
-                    </div>
+    <!--contact-->
+    <section class="bg-texture-collage p-0" id="contact">
+        <div class="container">
+            <div class="row d-md-flex text-white text-center wow fadeIn">
+                <div class="col-sm-4 p-5">
+                    <p>
+                        <em class="ion-ios-telephone-outline icon-md"></em>
+                    </p>
+                    <p class="lead">+1 2345 56789</p>
+                </div>
+                <div class="col-sm-4 p-5">
+                    <p>
+                        <em class="ion-ios-email-outline icon-md"></em>
+                    </p>
+                    <p class="lead">info@IPmine.com</p>
+                </div>
+                <div class="col-sm-4 p-5">
+                    <p>
+                        <em class="ion-ios-location-outline icon-md"></em>
+                    </p>
+                    <p class="lead">San Francisco, CA</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!--footer-->
-        <section class="bg-footer" id="connect">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
-                        <h1>IP-mine</h1>
-                        <p class="mt-4">
-                            <a href="https://twitter.com/" target="_blank"><em class="ion-social-twitter text-twitter-alt icon-sm mr-3"></em></a>
-                            <a href="https://github.com/ganeshsberkeley/W210_project_patentability" target="_blank"><em class="ion-social-github text-facebook-alt icon-sm mr-3"></em></a>
-                            <a href="https://www.linkedin.com/" target="_blank"><em class="ion-social-linkedin text-linkedin-alt icon-sm mr-3"></em></a>
-                            <a href="https://plus.google.com/" target="_blank"><em class="ion-social-googleplus text-google-alt icon-sm mr-3"></em></a>
-                        </p>
-                        <p class="pt-2 text-muted">
-                            &copy; 2017 IP-mine
-                        </p>
-                    </div>
+    <!--footer-->
+    <section class="bg-footer" id="connect">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
+                    <h1>IP-mine</h1>
+                    <p class="mt-4">
+                        <a href="https://twitter.com/" target="_blank">
+                            <em class="ion-social-twitter text-twitter-alt icon-sm mr-3"></em>
+                        </a>
+                        <a href="https://github.com/ganeshsberkeley/W210_project_patentability" target="_blank">
+                            <em class="ion-social-github text-facebook-alt icon-sm mr-3"></em>
+                        </a>
+                        <a href="https://www.linkedin.com/" target="_blank">
+                            <em class="ion-social-linkedin text-linkedin-alt icon-sm mr-3"></em>
+                        </a>
+                        <a href="https://plus.google.com/" target="_blank">
+                            <em class="ion-social-googleplus text-google-alt icon-sm mr-3"></em>
+                        </a>
+                    </p>
+                    <p class="pt-2 text-muted">
+                        &copy; 2017 IP-mine
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-        <script src="static/js/scripts.js"></script>
-    </body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+    <script src="static/js/scripts.js"></script>
+</body>
+
 </html>
