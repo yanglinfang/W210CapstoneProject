@@ -22,7 +22,7 @@
                 <div class="card">
                     <div class="card-block">
                         <h5 class="card-title pt-4 text-orange">Step 1</h5>
-                        <h3 class="card-title text-primary pt-4">Enter Patent Abstract</h3>
+                        <h3 class="card-title text-primary pt-4">Enter New Patent Claim text</h3>
                         <p class="card-text text-muted pb-3 border-bottom">{{ render_field( form.patent_abs, class_="large-text" ) }}</p>
                     </div>
                 </div>
@@ -52,4 +52,7 @@
         </div>
     </form>
 </div>
+<script>
+    document.getElementById('submit').style.display = "none";
+</script>
 {% endblock %}

@@ -12,13 +12,13 @@ from flask_wtf import Form
 
 class PatentSearch(Form):
 
-    patent_abs = TextAreaField('<b>Patent Abstract</b> (eg "A manipulation method of a telemeeting terminal device for performing communication between remote locations by a multiwindow function for displaying multiple media")',
+    patent_abs = TextAreaField('New Patent Claim Text (for example <strong>A manipulation method of a telemeeting terminal device for performing communication between remote locations by a multiwindow function for displaying multiple media</strong>)',
                         validators=[DataRequired()])
 
-    patent_cosine_sim_threshold = TextField('<b>Patent Similarity Threshold, Scale 0-1. </b> (eg 0.5, 0.7)',
+    patent_cosine_sim_threshold = TextField('Patent Claim Match Threshold, Scale 0-1. (for example <strong> 0.5, 0.7</strong>)',
                         validators=[DataRequired()])
 
-    patent_result_top = TextField('<b>Patent Result Get Top X</b> (eg 5, 10)',
+    patent_result_top = TextField('Patent Result Get Top X (for example <strong> 5, 10</strong>)',
                         validators=[DataRequired()])
 
     submit = SubmitField()
