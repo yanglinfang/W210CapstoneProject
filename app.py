@@ -72,14 +72,18 @@ def patentMain():
     return render_template('patentSearch.html', form=form)
 
 
+# @app.route("/patentResults/<abs>+<sim>+<top>")
+# def patentResults(abs, sim, top):
+#     # call from query_similarity to get search results
+#     data, data_type = query_similarity.search(abs, sim, top)
+#     # convert dataframe to table, tell pandas to not truncate width
+#     pd.set_option('display.max_colwidth', -1)
+#     table = data.to_html()
+#     return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table)
+
 @app.route("/patentResults/<abs>+<sim>+<top>")
 def patentResults(abs, sim, top):
-    # call from query_similarity to get search results
-    data, data_type = query_similarity.search(abs, sim, top)
-    # convert dataframe to table, tell pandas to not truncate width
-    pd.set_option('display.max_colwidth', -1)
-    table = data.to_html()
-    return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top, table=table)
+    return render_template('patentSearchResults.html', abs=abs, sim=sim, top=top)
 
 @app.route('/static/data/topics/<path:path>')
 def send_title_data(path):

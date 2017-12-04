@@ -14,7 +14,7 @@
 <br>
 
 <div>Patent Similarity Threshold (0-1) you've entered:</div>
-<div>
+<div id='sim'>
     {{ sim }}
 </div>
 
@@ -23,18 +23,75 @@
 
 
 <div>Patent Search Result Get Top Count you've entered:</div>
-<div>
+<div id='top'>
     {{ top }}
 </div>
 
-<br>
+<!-- <br>
 <br>
 <div>Patent Search Result Table:</div>
-{{ table | safe }}
+{{ table | safe }} -->
 
 <br>
 <br>
 
+
+
+<div class="container-fluid">
+        <div class="form-group row">
+            <div class="col-xs-8">
+                <input id="searchtext" type="text" class="form-control input-lg" value="{{ abs }}">
+            </div>	
+            <input id="searchpatents" type="submit" value="Search" class="btn btn-primary" onclick="searchPatents()">
+        </div>
+    
+        <hr/>
+    
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#result">Similar Patents</a></li>
+          <li><a data-toggle="tab" href="#wcloud">Topics</a></li>
+          <li><a data-toggle="tab" href="#charts">Charts</a></li>
+        </ul>
+    
+        <div class="tab-content">
+          <div id="result" class="tab-pane fade in active">
+                <div class="row">
+                    <div class="col-xs-12">
+                      <div class="table-responsive">
+                        <table id = "searchresultTable" resultsummary="" class="table table-bordered table-hover">
+                          <!-- <caption class="text-center">Search result for threshold 0.5 and top results 5</caption> -->
+                          <thead>
+                            <tr>
+                              <th style="width:5%">Appl. No.</th>
+                              <th style="width:25%">Invention Title</th>
+                              <th style="width:30%">Abstract</th>
+                              <th style="width:30%">Claim Text</th> 
+                            </tr>
+                          </thead>
+                          <tbody></tbody>
+                      
+                         <tfoot>
+                            <tr>
+                              <td colspan="4" class="text-center">Data collected from <a href="https://bulkdata.uspto.gov/" target="_blank">uspto.gov</a>.</td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </div>
+                </div>
+          </div>
+          <div id="wcloud" class="tab-pane fade">
+            <h3>Word Cloud</h3>
+            <p>word cloud</p>
+          </div>
+          <div id="charts" class="tab-pane fade">
+            <h3>Charts</h3>
+            <p>Charts</p>
+          </div>
+        </div>
+    
+    </div>
+        
 <div class=metanav>
     <a href="{{ url_for('patentMain')}}#searching">back to patent search</a>
 </div>
