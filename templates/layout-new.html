@@ -208,20 +208,26 @@
                 <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
                     <h2 class="text-primary">Explorer Patent Data</h2>
                     <p class="lead mt-4">
-                        <h6> Select Cluster</h6>
+                        <p class="lead pt-3">
+                            As we pre-classified all patent data into ten different first level clusters. And each first level cluster is also divided
+                            in to ten different secondary level clusters. Here you can explore the first level cluster data.
+                            </br>
+                            </br>
+                            Please select a first level cluster to explore.
+                        </p>
                         <div class="dropdown">
                             <select id="clusterDropdown" class="dropbtn" onchange="changeCluster(this.value)">
-                                <option value="0">Selected Cluster 0</option>
-                                <option value="1" selected="selected">Selected Cluster 1</option>
-                                <option value="2">Selected Cluster 2</option>
-                                <option value="3">Selected Cluster 3</option>
-                                <option value="4">Selected Cluster 4</option>
-                                <option value="5">Selected Cluster 5</option>
-                                <option value="6">Selected Cluster 6</option>
-                                <option value="7">Selected Cluster 7</option>
-                                <option value="8">Selected Cluster 8</option>
-                                <option value="9">Selected Cluster 9</option>
-                                <option value="x">Selected All Clusters</option>
+                                <option value="0">Selected 1st Cluster</option>
+                                <option value="1">Selected 2nd Cluster</option>
+                                <option value="2">Selected 3rd Cluster</option>
+                                <option value="3">Selected 4th Cluster</option>
+                                <option value="4">Selected 5th Cluster</option>
+                                <option value="5">Selected 6th Cluster</option>
+                                <option value="6">Selected 7th Cluster</option>
+                                <option value="7">Selected 8th Cluster</option>
+                                <option value="8">Selected 9th Cluster</option>
+                                <option value="9">Selected 10th Cluster</option>
+                                <option value="x" selected="selected">Selected All Clusters</option>
                             </select>
                         </div>
                     </p>
@@ -232,7 +238,7 @@
                     <div class="card">
                         <div class="card-block">
                             <p>
-                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/wordcloud/1+x+400"></iframe>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/wordcloud/x+x+400"></iframe>
                             </p>
                         </div>
                     </div>
@@ -241,7 +247,7 @@
                     <div class="card">
                         <div class="card-block">
                             <p>
-                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+pub_year"></iframe>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/x+x+pub_year"></iframe>
                             </p>
                         </div>
                     </div>
@@ -250,7 +256,7 @@
                     <div class="card">
                         <div class="card-block">
                             <p>
-                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+appl_year"></iframe>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/x+x+appl_year"></iframe>
                             </p>
                         </div>
                     </div>
@@ -259,7 +265,7 @@
                     <div class="card">
                         <div class="card-block">
                             <p>
-                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+grant_year"></iframe>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/x+x+grant_year"></iframe>
                             </p>
                         </div>
                     </div>
@@ -268,7 +274,7 @@
                     <div class="card">
                         <div class="card-block">
                             <p>
-                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+years_to_publish"></iframe>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/x+x+years_to_publish"></iframe>
                             </p>
                         </div>
                     </div>
@@ -277,7 +283,7 @@
                     <div class="card">
                         <div class="card-block">
                             <p>
-                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+years_to_grant"></iframe>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/x+x+years_to_grant"></iframe>
                             </p>
                         </div>
                     </div>
@@ -287,7 +293,7 @@
                     <div class="card">
                         <div class="card-block">
                             <p>
-                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+patent_doc_kind"></iframe>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/x+x+patent_doc_kind"></iframe>
                             </p>
                         </div>
                     </div>
@@ -296,7 +302,7 @@
                     <div class="card">
                         <div class="card-block">
                             <p>
-                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+number_of_claims"></iframe>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/x+x+number_of_claims"></iframe>
                             </p>
                         </div>
                     </div>
@@ -305,7 +311,7 @@
                     <div class="card">
                         <div class="card-block">
                             <p>
-                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/1+x+appl_change_count"></iframe>
+                                <iframe width=100% height="450" frameborder="0" seamless="seamless" scrolling="no" src="/patent/patentstats/x+x+appl_change_count"></iframe>
                             </p>
                         </div>
                     </div>
