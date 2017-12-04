@@ -17,6 +17,7 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script src="../../static/js/d3.layout.cloud.js"></script>
+    <script src="../../static/js/exploreData.js"></script>
 </head>
 
 <body>
@@ -38,6 +39,9 @@
                     <a class="nav-link page-scroll" href="#features">Features</a>
                 </li>
                 <li class="nav-item mr-3">
+                    <a class="nav-link page-scroll" href="#Explore">Explore Data</a>
+                </li>
+                <li class="nav-item mr-3">
                     <a class="nav-link page-scroll" href="#searching">Try Now</a>
                 </li>
                 <li class="nav-item mr-3">
@@ -45,7 +49,7 @@
                 </li>
                 <!-- <li class="nav-item mr-3">
                         <a class="nav-link page-scroll" href="#blog">Blog</a>
-                    </li> -->
+                </li> -->
                 <li class="nav-item mr-3">
                     <a class="nav-link page-scroll" href="#contact">Contact</a>
                 </li>
@@ -64,15 +68,14 @@
                     <h2 class="pt-4">Experience
                         <b class="text-primary">Patent Similarity Match Engine </b> With IP-mine</h2>
                     <p class="mt-5">
-                            IP-mine patent similarity match tool is web-based aid available for patent lawyer offices, 
-                            patent department within organizations, possibly USPTO to decipher new claims made by inventors. 
-                            We will provide early input for inventors, 
-                            patent lawyers about the similarity of their claims with respect to history of claims that have been approved.
+                        IP-mine patent similarity match tool is web-based aid available for patent lawyer offices, patent department within organizations,
+                        possibly USPTO to decipher new claims made by inventors. We will provide early input for inventors,
+                        patent lawyers about the similarity of their claims with respect to history of claims that have been
+                        approved.
                         </br>
                         </br>
-                            Our tool is very simple, fast and accurate to use.  
-                            This helps everyone involved in the patenting of a new claim-idea complete the process in a speedy manner.  
-                            Faster process means early monetization of new claim.
+                        Our tool is very simple, fast and accurate to use. This helps everyone involved in the patenting of a new claim-idea complete
+                        the process in a speedy manner. Faster process means early monetization of new claim.
                     </p>
                     <p class="mt-5">
                         <a href="#searching" class="btn btn-primary mr-2 mb-2 page-scroll">Try Now</a>
@@ -109,7 +112,7 @@
                             </div>
                         </div>
                     </div> -->
-                <div class="col-md-4 wow fadeIn">
+                <div class="col-md-4 wow fadeInLeft">
                     <div class="card">
                         <div class="card-block">
                             <div class="icon-box">
@@ -117,7 +120,7 @@
                             </div>
                             <h6>Automatic Cluster Match </h6>
                             <p>
-                                Automatic cluster match designed to dramatically speed up your search. 
+                                Automatic cluster match designed to dramatically speed up your search.
                             </p>
                         </div>
                     </div>
@@ -135,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 wow fadeIn">
+                <div class="col-md-4 wow fadeInRight">
                     <div class="card">
                         <div class="card-block">
                             <div class="icon-box">
@@ -205,12 +208,27 @@
                 <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 text-center wow fadeIn">
                     <h2 class="text-primary">Explorer Patent Data</h2>
                     <p class="lead mt-4">
-                        Select cluster (TODO: add selector)
+                        <h6> Select Cluster</h6>
+                        <div class="dropdown">
+                            <select id="clusterDropdown" class="dropbtn" onchange="changeCluster(this.value)">
+                                <option value="0">Selected Cluster 0</option>
+                                <option value="1" selected="selected">Selected Cluster 1</option>
+                                <option value="2">Selected Cluster 2</option>
+                                <option value="3">Selected Cluster 3</option>
+                                <option value="4">Selected Cluster 4</option>
+                                <option value="5">Selected Cluster 5</option>
+                                <option value="6">Selected Cluster 6</option>
+                                <option value="7">Selected Cluster 7</option>
+                                <option value="8">Selected Cluster 8</option>
+                                <option value="9">Selected Cluster 9</option>
+                                <option value="x">Selected All Clusters</option>
+                            </select>
+                        </div>
                     </p>
                 </div>
             </div>
             <div class="row mt-5 text-center">
-                <div class="col-md-4 wow fadeIn">
+                <div class="col-md-4 wow fadeInLeft">
                     <div class="card">
                         <div class="card-block">
                             <p>
@@ -228,7 +246,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 wow fadeIn">
+                <div class="col-md-4 wow fadeInRight">
                     <div class="card">
                         <div class="card-block">
                             <p>
@@ -237,7 +255,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 wow fadeIn">
+                <div class="col-md-4 wow fadeInLeft">
                     <div class="card">
                         <div class="card-block">
                             <p>
@@ -255,7 +273,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 wow fadeIn">
+                <div class="col-md-4 wow fadeInRight">
                     <div class="card">
                         <div class="card-block">
                             <p>
@@ -265,7 +283,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 wow fadeIn">
+                <div class="col-md-4 wow fadeInLeft">
                     <div class="card">
                         <div class="card-block">
                             <p>
@@ -283,7 +301,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 wow fadeIn">
+                <div class="col-md-4 wow fadeInRight">
                     <div class="card">
                         <div class="card-block">
                             <p>

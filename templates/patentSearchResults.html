@@ -1,7 +1,4 @@
-
-{% extends "layout-old.html" %}
-
-{% block body %}
+ {% extends "layout-old.html" %} {% block body %}
 <div class=metanav>
     <a href="{{ url_for('patentMain')}}#searching">back to patent search</a>
 </div>
@@ -35,10 +32,11 @@
 <div>Patent Search Result Table:</div>
 {{ table | safe }}
 
-    <br><br>
+<br>
+<br>
 
 <div class=metanav>
-        <a href="{{ url_for('patentMain')}}#searching">back to patent search</a>
+    <a href="{{ url_for('patentMain')}}#searching">back to patent search</a>
 </div>
 
 {% endblock %}
