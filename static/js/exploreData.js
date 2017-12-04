@@ -2,21 +2,21 @@
                                toggle between hiding and showing the dropdown content */
 function changeCluster(v) {
     $('iframe')[0].src =
-        "http://" + document.location.host + "/patent/wordcloud/" + v + "+x+400"
+    document.location.href + "patent/wordcloud/" + v + "+x+400"
     $('iframe')[1].src =
-        "http://" + document.location.host + "/patent/patentstats/" + v + "+x+pub_year"
+    document.location.href + "patent/patentstats/" + v + "+x+pub_year"
     $('iframe')[2].src =
-        "http://" + document.location.host + "/patent/patentstats/" + v + "+x+appl_year"
+    document.location.href + "patent/patentstats/" + v + "+x+appl_year"
     $('iframe')[3].src =
-        "http://" + document.location.host + "/patent/patentstats/" + v + "+x+grant_year"
+    document.location.href + "patent/patentstats/" + v + "+x+grant_year"
     $('iframe')[4].src =
-        "http://" + document.location.host + "/patent/patentstats/" + v + "+x+years_to_publish"
+    document.location.href + "patent/patentstats/" + v + "+x+years_to_publish"
     $('iframe')[5].src =
-        "http://" + document.location.host + "/patent/patentstats/" + v + "+x+years_to_grant"
+    document.location.href + "patent/patentstats/" + v + "+x+years_to_grant"
     $('iframe')[6].src =
-        "http://" + document.location.host + "/patent/patentstats/" + v + "+x+patent_doc_kind"
+    document.location.href + "patent/patentstats/" + v + "+x+patent_doc_kind"
     $('iframe')[7].src =
-        "http://" + document.location.host + "/patent/patentstats/" + v + "+x+number_of_claims"
+    document.location.href + "patent/patentstats/" + v + "+x+number_of_claims"
     $('iframe')[8].src =
-        "http://" + document.location.host + "/patent/patentstats/" + v + "+x+appl_change_count"
+    document.location.href + "patent/patentstats/" + v + "+x+appl_change_count"
 }
