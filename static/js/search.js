@@ -28,6 +28,7 @@ function changeClusters(cluster1, cluster2) {
 
 function searchPatents() {
     console.log('search clicked');
+    $('#loader').attr("class","loader")
     $("#searchresultTable > tbody").empty();
 
     $('#clusterInfo').text('')
@@ -46,6 +47,7 @@ function searchPatents() {
         crossDomain: true,
         success: function (data) {
             console.log(data);
+            $('#loader').attr("class","")
             chart_data = data.charts_data.charts_data1;
             searchresult_data = data.searchresult;
             cluster1 = data.firstcluster;
