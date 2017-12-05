@@ -1,5 +1,6 @@
 import csv
 import os.path
+from decimal import Decimal
 
 allowedId = ['0','1','2','3','4','5','6','7','8','9','x']
 pathPrefix = 'static/data/topics/'
@@ -12,16 +13,24 @@ def loadTitles(fileId, rowId):
     returnList = [] 
     allRows = [] 
     if(fileId in allowedId):
+        print(fName)
         with open(fName) as csvfile:
             spamreader = csv.reader(csvfile, delimiter= ' ', quotechar='|')
             for row in spamreader:
                 #print(len(row))
                 Id, firstWord = row[0].split(',')
                 row[0] = firstWord 
+                row_with_weight = []
+                weight = 10.0
+                for row_word in row:
+                    row_with_weight.append(row_word + '|' + "{0:.3f}".format(weight))
+                    weight = weight - 0.005
+                #print (row)
+                #print (row_with_weight)
                 #print(Id, firstWord)
                 if(rowId == Id):
-                    returnList = row
-                allRows += row 
+                    returnList = row_with_weight
+                allRows += row_with_weight 
     if(rowId == 'x'):
         return allRows
     else:  
@@ -30,8 +39,13 @@ def loadTitles(fileId, rowId):
             
 def getDict(inputList):
     counts = dict()
-    for i in inputList:
-        counts[i] = counts.get(i, 0) + 1
+    #print (inputList)
+    for word_with_weight in inputList:
+        #print(word_with_weight)
+        word, weightStr = word_with_weight.split('|')
+        weight = Decimal(weightStr)
+        counts[word] = counts.get(word, 0) + 1000 + int(weight*1000)
+        #print(word, weight, counts[word])
     return counts 
 
 def saveToCsv(fName, counts, topWords):

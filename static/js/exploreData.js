@@ -2,7 +2,7 @@
                                toggle between hiding and showing the dropdown content */
 function changeCluster(v) {
     $('iframe')[0].src =
-    document.location.href + "patent/wordcloud/" + v + "+x+400"
+    document.location.href + "patent/wordcloud/x+" + v + "+400"
     $('iframe')[1].src =
     document.location.href + "patent/patentstats/" + v + "+x+pub_year"
     $('iframe')[2].src =

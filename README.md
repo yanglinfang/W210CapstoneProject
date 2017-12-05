@@ -31,3 +31,9 @@ nohup python -u app.py &
 
 ##### Use python 
 python app.py &
+
+#### To check what python environment you have 
+conda info -e
+
+#### To activate python environment 
+source activate yourenvname
