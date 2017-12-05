@@ -17,6 +17,4 @@ function changeCluster(v) {
     document.location.href + "patent/patentstats/" + v + "+x+patent_doc_kind"
     $('iframe')[7].src =
     document.location.href + "patent/patentstats/" + v + "+x+number_of_claims"
-    $('iframe')[8].src =
-    document.location.href + "patent/patentstats/" + v + "+x+appl_change_count"
 }
