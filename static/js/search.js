@@ -37,6 +37,11 @@ function searchPatents() {
     var srchtext = $('#searchtext').val().trim();
     var topX = $('#top').val()
     var similarity = $('#sim').val() / 100;
+
+    if(srchtext == ""){
+        return; 
+    }
+
     srchurl = hosturl + '?query_string=' + srchtext + '&top=' + topX + '&cosine_sim_threshold=' + similarity;
 
     $.ajax({

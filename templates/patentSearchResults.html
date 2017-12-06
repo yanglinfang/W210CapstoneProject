@@ -137,4 +137,12 @@
   <a href="{{ url_for('patentMain')}}#searching">back to patent search</a>
 </div>
 
+<script>
+  if($('tr').length <= 2){
+    // search hasn't run yet, run it
+    searchPatents();
+  }
+</script>
+
 {% endblock %}
+
