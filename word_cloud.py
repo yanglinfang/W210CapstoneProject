@@ -16,7 +16,7 @@ def loadTitles(fileId, rowId):
     weights = np.logspace(0.8,0.1,dtype='double', num=2000)
     #print (weights) 
     if(fileId in allowedId):
-        print(fName)
+        #print(fName)
         with open(fName) as csvfile:
             spamreader = csv.reader(csvfile, delimiter= ' ', quotechar='|')
             for row in spamreader:

@@ -27,7 +27,7 @@ function changeClusters(cluster1, cluster2) {
 }
 
 function searchPatents() {
-    console.log('search clicked');
+    //console.log('search clicked');
     $('#loader').attr("class","loader")
     $("#searchresultTable > tbody").empty();
 
