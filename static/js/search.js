@@ -83,9 +83,10 @@ function searchPatents() {
                 //row.appendChild(td);					
 
                 var abstract = searchresult_data[i].abstract
+                var lengthLimit = 5000
 
-                if (abstract.length > 150) {
-                    abstract_small = abstract.substring(0, 150) + '....'
+                if (abstract.length > lengthLimit) {
+                    abstract_small = abstract.substring(0, lengthLimit) + '....'
 
                     var abbrnode = document.createElement("abbr");
                     abbrnode.setAttribute("title", abstract);
@@ -104,8 +105,8 @@ function searchPatents() {
 
                 var claim_text = searchresult_data[i].claim_text
 
-                if (claim_text.length > 150) {
-                    claim_text_small = claim_text.substring(0, 150) + '....'
+                if (claim_text.length > lengthLimit) {
+                    claim_text_small = claim_text.substring(0, lengthLimit) + '....'
 
                     var abbrnode = document.createElement("abbr");
                     abbrnode.setAttribute("title", claim_text);

@@ -1,13 +1,11 @@
-
-{% extends "layout-old.html" %}
-{% block body %}
+ {% extends "layout-old.html" %} {% block body %}
 <div id='{{keyName}}_chart'></div>
 
 <script type="text/javascript">
 
-    var padding = 30; 
+    var padding = 30;
     var margin = { top: padding * 2, right: padding * 2, bottom: padding * 3, left: padding * 2 },
-        width = 500 - margin.left - margin.right,
+        width = 550 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 
     var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
@@ -27,17 +25,16 @@
     var tip = d3.tip()
         .attr('class', 'd3-tip')
         .offset([-10, 0])
-        .html(function(d) {
-            return  "<strong>X: </strong><span style='color:red'>" + d["{{keyName}}"] + "</span></br>" +
-            "<strong>Y:</strong> <span style='color:red'>" + d.count + "</span>";
+        .html(function (d) {
+            return "<strong>X: </strong><span style='color:red'>" + d["{{keyName}}"] + "</span></br>" +
+                "<strong>Y:</strong> <span style='color:red'>" + d.count + "</span>";
         })
 
     var svg = d3.select("#{{keyName}}_chart").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     svg.call(tip);
 
@@ -82,26 +79,24 @@
             .on('mouseout', tip.hide);
 
         svg.append("text")
-            .attr("text-anchor", "middle")  
+            .attr("text-anchor", "middle")
             .attr('class', 'axis-label')
-            .attr("transform", "translate("+ (width/2) +","+(height+2*padding)+")")
+            .attr("transform", "translate(" + (width / 2) + "," + (height + 2 * padding) + ")")
             .text("{{labels[0]}}");
 
         svg.append("text")
-            .attr("text-anchor", "middle")  
+            .attr("text-anchor", "middle")
             .attr('class', 'axis-label')
-            .attr("transform", "translate("+ (-1.5*padding) +","+(height/2)+")rotate(-90)")
+            .attr("transform", "translate(" + (-1.5 * padding) + "," + (height / 2) + ")rotate(-90)")
             .text("{{labels[1]}}");
 
         svg.append("text")
-            .attr("x", (width / 2))             
+            .attr("x", (width / 2))
             .attr("y", 0 - (margin.top / 2))
-            .attr("text-anchor", "middle")  
+            .attr("text-anchor", "middle")
             .attr('class', 'axis-label')
             .text("{{labels[2]}}");
 
     });
 
-</script>
-{% endblock %}
-
+</script> {% endblock %}

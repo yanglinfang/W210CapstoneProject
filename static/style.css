@@ -1,28 +1,6 @@
-body { font-family: 'PT Sans', sans-serif; background: #eee; }
-a, h1, h2 { color: #021A80; }
-h1, h2 { font-family: 'PT Sans', sans-serif; margin: 0; text-align: center;}
-h1 { font-size: 1.4em; border-bottom: 2px solid #eee; }
-h2 { font-size: 1.0em; }
-
-a:link { color: #B40404; text-decoration:none; }
-a:visited { color: #B40404; text-decoration:none; }
-
-.dataframe { margin-left: auto; margin-right: auto;}
-
-.page { font-family: 'PT Sans', sans-serif; margin: 2em auto; width: 66em;
-                  padding: 0.8em; background: white; color: #021A80}
-
-.metanav { text-align: right; font-size: 1em; padding: 0.3em;
-                  margin-bottom: 1em; background: #fafafa; }
-
-.logo img { width: 30%; display: block; margin-right: auto;
-            margin-left: auto; }
-
-.errors { font-size: 0.8em; color: red;}
-
-.form {text-align: center;}
-
-.large-text { width: 80%;}
+.metanav {
+  text-align: right;
+}
 
 /* style for bar chart */
 .axis path,
@@ -78,87 +56,11 @@ a:visited { color: #B40404; text-decoration:none; }
   left: 0;
 }
 
-/* style for patent search result */
-
-.add-on .input-group-btn > .btn {
-    border-left-width:0;left:-2px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  }
-  
-  /* stop the glowing blue shadow */
-  .add-on .form-control:focus {
-   box-shadow:none;
-   -webkit-box-shadow:none; 
-   border-color:#cccccc; 
-  }
-  
-  .form-control{width:40%}
-  
-  abbr[title] {
-      border-bottom: none !important;
-      text-decoration: none !important;
-  }
-  
-  h2 {
-    text-align: center;
-  }
-  
-  table caption {
-      padding: .5em 0;
-  }
-  
-  .table-bordered{
-    align: center;
-    font-size: 14px;
-    width: 100% !important;
-  }
-  
-  @media screen and (max-width: 767px) {
-    table caption {
-      border-bottom: 1px solid #ddd;
-    }
-  }
-  
-  hr { 
-      display: block;
-      border-width: 5px;
-      border-color: #5F9EA0 !important;
-  }
-  
-  #ex1Slider .slider-selection {
-      background: #BABABA;
-  }
-  
-  .p {
-    text-align: center;
-    padding-top: 140px;
-    font-size: 14px;
-  }
-  
-  .nav-tabs li a{
-      display: block;
-      padding: 20px 15px;
-      background: #fff;
-      font-size: 15px !important;
-      font-weight: 700;
-      color: #000080 !important;
-      text-align: center;
-      border-radius: 0;
-      border: none;
-      margin-right: 0;
-      overflow: hidden;
-      z-index: 1;
-      position: relative;
-      transition: all 0.3s ease 0s;
-  }
-  
-
-  /*Loader style*/
+/* Loader style */
   .loader {
-    border: 16px solid #f3f3f3;
+    border: 16px solid white;
     border-radius: 50%;
-    border-top: 16px solid #3498db;
+    border-top: 16px solid #ff4081;
     width: 120px;
     height: 120px;
     -webkit-animation: spin 2s linear infinite; /* Safari */

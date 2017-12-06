@@ -1,9 +1,4 @@
-#
-# Data input form
-# forms.py
-#
 
-# install: pip install Flask-WTF
 from wtforms import TextField
 from wtforms.fields import TextAreaField
 from wtforms.fields import SubmitField

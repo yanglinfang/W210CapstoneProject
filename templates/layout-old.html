@@ -1,12 +1,17 @@
 <!doctype html>
 
-<title>ML Based Patent Prior Art Search Tool</title>
+<title>IP-mine patent search tool</title>
 
 <head>
   <meta charset="UTF-8">
-  <link rel=stylesheet type=text/css href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-  <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+  <link rel=stylesheet type='text/css' href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel=stylesheet type='text/css' href="{{ url_for('static', filename='style.css') }}">
+  <link rel=stylesheet type='text/css' href='https://fonts.googleapis.com/css?family=PT+Sans'>
+  <link rel=stylesheet type='text/css' href="../../static/css/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
   <link rel="shortcut icon" href="{{ url_for('static', filename='IPsearch.ico') }}">
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
@@ -32,6 +37,6 @@
 
 </head>
 
-<div class=page>
+<body>
   {% block body %} {% endblock %}
-</div>
+</body>

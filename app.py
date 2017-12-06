@@ -1,17 +1,11 @@
 #
-# Historical Stock Prices
-# using Python & Flask & Plotly
-#
-# stock_interactive.py
-#
-# The Python Quants GmbH
+# W210 capstone project 
 #
 from pandas_datareader import data as web
 import cufflinks
 import pandas as pd
 import plotly.plotly as py
 from flask import Flask, request, render_template, redirect, url_for, send_from_directory
-from forms import SymbolSearch
 from patentSearchForm import PatentSearch
 import query_similarity
 
@@ -20,46 +14,14 @@ import os.path
 import word_cloud
 import patent_stats
 
-# login to plot.ly
-#py.sign_in('yanglinfang', 'F5jaY29GDfD8TIenMz9p')
-
 #
 # Main app
 #
 
 app = Flask(__name__)
 
-
-@app.route("/symbol", methods=['GET', 'POST'])
-def main():
-    form = SymbolSearch(csrf_enabled=False)
-    if request.method == 'POST' and form.validate():
-        return redirect(url_for('results', symbol=request.form['symbol'],
-                                trend1=request.form['trend1'],
-                                trend2=request.form['trend2']))
-    return render_template('selection.html', form=form)
-
-
-@app.route("/symbol/<symbol>+<trend1>+<trend2>")
-def results(symbol, trend1, trend2):
-    data = web.DataReader(symbol, data_source='yahoo')
-    data['Trend 1'] = data['Adj Close'].rolling(int(trend1)).mean()
-    data['Trend 2'] = data['Adj Close'].rolling(int(trend2)).mean()
-    url = data[['Adj Close', 'Trend 1', 'Trend 2']].iplot(asUrl=True)
-    table = data.tail().to_html()
-    return render_template('plotly.html', symbol=symbol,
-                           plot=url, table=table)
-
-
-@app.route("/home", methods=['GET'])
-def home():
-    return render_template('home.html')
-
-@app.route("/search", methods=['GET'])
-def search():
-    return render_template('search.html')
-
 @app.route("/", methods=['GET'])
+@app.route("/home", methods=['GET'])
 @app.route("/patent", methods=['GET', 'POST'])
 def patentMain():
     form = PatentSearch(csrf_enabled=False)
