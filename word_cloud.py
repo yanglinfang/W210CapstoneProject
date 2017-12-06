@@ -1,5 +1,6 @@
 import csv
 import os.path
+import numpy as np 
 from decimal import Decimal
 
 allowedId = ['0','1','2','3','4','5','6','7','8','9','x']
@@ -12,6 +13,8 @@ def loadTitles(fileId, rowId):
     fName = pathPrefix + 'topics_'+ fileId + ending
     returnList = [] 
     allRows = [] 
+    weights = np.logspace(0.8,0.1,dtype='double', num=2000)
+    #print (weights) 
     if(fileId in allowedId):
         print(fName)
         with open(fName) as csvfile:
@@ -21,10 +24,10 @@ def loadTitles(fileId, rowId):
                 Id, firstWord = row[0].split(',')
                 row[0] = firstWord 
                 row_with_weight = []
-                weight = 10.0
+                index = 0 
                 for row_word in row:
-                    row_with_weight.append(row_word + '|' + "{0:.3f}".format(weight))
-                    weight = weight - 0.005
+                    row_with_weight.append(row_word + '|' + "{0:.3f}".format(weights[index]))
+                    index += 1
                 #print (row)
                 #print (row_with_weight)
                 #print(Id, firstWord)

@@ -6,6 +6,11 @@
 
 <script type="text/javascript">
     var fill = d3.scale.category20();
+    var filePath = "{{ filePath }}";
+    var wordScale = 250;
+    if(filePath.indexOf("x_") !== -1){
+        wordScale = 1500; 
+    }
     d3.csv("{{ filePath }}", function (d) {
         return {
             text: d.word,
@@ -21,7 +26,7 @@
                 })
                 .font("Impact")
                 .fontSize(function (d) {
-                    return d.size / 500;
+                    return d.size / wordScale;
                 })
                 .on("end", draw)
                 .start();
