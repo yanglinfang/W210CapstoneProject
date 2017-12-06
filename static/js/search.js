@@ -48,7 +48,7 @@ function searchPatents() {
         success: function (data) {
             console.log(data);
             $('#loader').attr("class","")
-            chart_data = data.charts_data.charts_data1;
+           
             searchresult_data = data.searchresult;
             cluster1 = data.firstcluster;
             cluster2 = data.secondcluster;
