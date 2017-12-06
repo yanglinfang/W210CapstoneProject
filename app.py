@@ -21,7 +21,7 @@ import word_cloud
 import patent_stats
 
 # login to plot.ly
-py.sign_in('yanglinfang', 'F5jaY29GDfD8TIenMz9p')
+#py.sign_in('yanglinfang', 'F5jaY29GDfD8TIenMz9p')
 
 #
 # Main app
