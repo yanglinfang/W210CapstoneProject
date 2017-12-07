@@ -7,6 +7,36 @@ function updateTopTextInput(val) {
     $('#topText').text(val)
 };
 
+
+function toggleShow(id){
+    var full = id.replace('_more', '_full');
+    var less = id.replace('_more', '_less');
+
+    if($('#'+id).text()=='... ...more'){
+        $('#'+id).text('less');
+        $('#'+full).removeAttr('hidden')
+        $('#'+full).show();
+        $('#'+less).hide()
+    }
+    else{
+        $('#'+id).text('... ...more');
+        $('#'+full).hide();
+        $('#'+less).show()
+    }
+}
+    
+function showMore(fullText, lengthLim, id){
+    var firstHalf = fullText.substring(0, lengthLim)
+    var d = document.createElement("td");
+    if(fullText.length <=lengthLim){
+        d.innerHTML='<span class="complete" id="'+id+'_full'+'">' + fullText + '</span>' 
+    }
+    else{
+        d.innerHTML='<span class="teaser" id="'+id+'_less'+'">'+firstHalf+'</span>' + '<span class="complete" hidden="hidden" id="'+id+'_full'+'">' + fullText + '</span><span class="more" style="color: blue;" onclick="toggleShow(this.id)" id="'+id+'_more'+'">... ...more</span>' 
+    }
+    return d;
+}
+
 function changeClusters(cluster1, cluster2) {
     $('iframe')[0].src =
         "http://" + document.location.host + "/patent/wordcloud/" + cluster1 + "+" + cluster2 + "+400"
@@ -82,48 +112,16 @@ function searchPatents() {
                 //td.appendChild(document.createTextNode(searchresult_data[i].abstract));
                 //row.appendChild(td);					
 
+                var lengthLimit = 200
                 var abstract = searchresult_data[i].abstract
-                var lengthLimit = 5000
-
-                if (abstract.length > lengthLimit) {
-                    abstract_small = abstract.substring(0, lengthLimit) + '....'
-
-                    var abbrnode = document.createElement("abbr");
-                    abbrnode.setAttribute("title", abstract);
-                    var abbrtextnode = document.createTextNode(abstract_small);
-                    abbrnode.appendChild(abbrtextnode);
-                    var td = document.createElement('td');
-                    td.appendChild(abbrnode);
-                    row.appendChild(td);
-                }
-                else {
-                    var td = document.createElement('td');
-                    td.appendChild(document.createTextNode(abstract));
-                    row.appendChild(td);
-                }
-
+                row.appendChild(showMore(abstract, lengthLimit, searchresult_data[i].appl_doc_number + '_abs'));
 
                 var claim_text = searchresult_data[i].claim_text
-
-                if (claim_text.length > lengthLimit) {
-                    claim_text_small = claim_text.substring(0, lengthLimit) + '....'
-
-                    var abbrnode = document.createElement("abbr");
-                    abbrnode.setAttribute("title", claim_text);
-                    var abbrtextnode = document.createTextNode(claim_text_small);
-                    abbrnode.appendChild(abbrtextnode);
-                    var td = document.createElement('td');
-                    td.appendChild(abbrnode);
-                    row.appendChild(td);
-                }
-                else {
-                    var td = document.createElement('td');
-                    td.appendChild(document.createTextNode(claim_text));
-                    row.appendChild(td);
-                }
+                row.appendChild(showMore(claim_text, lengthLimit, searchresult_data[i].appl_doc_number + '_claim'));
 
                 output.appendChild(row);
             }
         }
     });
 };
+
