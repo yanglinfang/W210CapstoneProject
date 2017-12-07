@@ -13,7 +13,7 @@ class PatentSearch(Form):
     patent_cosine_sim_threshold = TextField('Patent Claim Match Threshold %, Scale 0-100%. (for example <strong> 30</strong> no need to enter unit)',
                         validators=[DataRequired()])
 
-    patent_result_top = TextField('Patent Result Get Top X (for example <strong> 5</strong>)',
+    patent_result_top = TextField('Patent Result Get Top X, Scale 1-20 (for example <strong> 5</strong>)',
                         validators=[DataRequired()])
 
     submit = SubmitField()
