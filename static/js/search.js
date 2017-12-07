@@ -101,6 +101,14 @@ function searchPatents() {
                 row.appendChild(td);
 
                 var td = document.createElement('td');
+                var p_num = searchresult_data[i].patent_number;
+                if(p_num == null){
+                    p_num = 'N/A'
+                }
+                td.appendChild(document.createTextNode(p_num));
+                row.appendChild(td);
+
+                var td = document.createElement('td');
                 td.appendChild(document.createTextNode((searchresult_data[i].cosine_similarity * 100).toFixed(2)));
                 row.appendChild(td);
 
