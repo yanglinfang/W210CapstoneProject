@@ -88,7 +88,7 @@ function searchPatents() {
             cluster1 = data.firstcluster;
             cluster2 = data.secondcluster;
             changeClusters(cluster1, cluster2);
-            $('#clusterInfo').text('First level cluster ' + cluster1 + ', second level cluster ' + cluster2);
+            $('#clusterInfo').text('First level cluster ' + str(int(cluster1)+1) + '. Second level cluster ' + str(int(cluster2)+1)) + '.';
 
             var output = document.querySelector('#searchresultTable tbody');
 

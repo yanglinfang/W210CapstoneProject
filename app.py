@@ -51,13 +51,13 @@ def wordCloud(cluster_level_1, cluster_level_2, top_n):
     if(cluster_level_1=='x'):
         title += 'All'
     else:
-        title += cluster_level_1
+        title += str(int(cluster_level_1)+1)
 
     title += '. Second level cluster: '
     if(cluster_level_2=='x'):
         title += 'All.'
     else:
-        title += cluster_level_2 + '.'
+        title += str(int(cluster_level_2)+1) + '.'
 
     return render_template('wordCloud.html', filePath=filePath, title=title)
 
