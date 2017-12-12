@@ -47,7 +47,19 @@ def wordCloud(cluster_level_1, cluster_level_2, top_n):
     if(len(fName)!=2):
         fName = 'xx' #if user input invalid cluster, we will default to show all topics
     filePath = "../../" + word_cloud.createTitleSummaryFile(fName, int(top_n))
-    return render_template('wordCloud.html', filePath=filePath)
+    title='First level cluster: '
+    if(cluster_level_1=='x'):
+        title += 'All'
+    else:
+        title += cluster_level_1
+
+    title += '. Second level cluster: '
+    if(cluster_level_2=='x'):
+        title += 'All.'
+    else:
+        title += cluster_level_2 + '.'
+
+    return render_template('wordCloud.html', filePath=filePath, title=title)
 
 @app.route("/patent/wordcloud", methods=['GET'])
 def wordCloudToggle():
