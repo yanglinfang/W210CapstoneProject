@@ -63,7 +63,7 @@ function searchPatents() {
 
     $('#clusterInfo').text('')
 
-    hosturl = 'http://ec2-54-89-199-144.compute-1.amazonaws.com:8080/patentsearch'
+    hosturl = 'http://ec2-54-89-196-215.compute-1.amazonaws.com:8080/patentsearch'
     var srchtext = $('#searchtext').val().trim();
     var topX = $('#top').val()
     var similarity = $('#sim').val() / 100;
